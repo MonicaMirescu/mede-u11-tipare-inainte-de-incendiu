@@ -1,0 +1,27 @@
+{
+  "study_area": "Bejís–Villanueva de Viver, Castellón, Spain",
+  "bbox": {
+    "north": 40.2,
+    "south": 39.7,
+    "west": -1,
+    "east": -0.4
+  },
+  "period": {
+    "start": "2020-01-01",
+    "end": "2024-12-31",
+    "days": 1827
+  },
+  "era5_hours": 43848,
+  "era5_grid_points": 30,
+  "viirs_detections": 1249,
+  "viirs_days_with_detection": 24,
+  "modis": {
+    "ndvi_composites_total": 116,
+    "lst_composites_total": 230,
+    "ndvi_composites_with_valid_pixels": 116,
+    "lst_day_composites_with_valid_pixels": 229,
+    "lst_night_composites_with_valid_pixels": 227
+  },
+  "method": "Region mean (ERA5/MODIS), daily VIIRS count, 8/16-day composite values only after period end",
+  "note": "Zero VIIRS detections do not establish absence of fire."
+}
