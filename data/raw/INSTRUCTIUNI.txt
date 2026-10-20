@@ -1,0 +1,1 @@
+Adaugă aici cele trei arhive ZIP originale: ERA5, VIIRS şi MODIS. Nu le dezarhiva.
