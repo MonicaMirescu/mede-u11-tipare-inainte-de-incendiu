@@ -1,0 +1,28 @@
+era5_variable,era5_label,era5_unit,modis_variable,modis_label,modis_unit,spearman_rho,n_valid_days,absolute_rho
+temperature_mean_c,Temperatură medie aer,°C,lst_day_mean_c,"Temperatură suprafață, zi",°C,0.903430037428,1818,0.903430037428
+temperature_mean_c,Temperatură medie aer,°C,lst_night_mean_c,"Temperatură suprafață, noapte",°C,0.889800760306,1802,0.889800760306
+temperature_max_c,Maxim al temperaturii medii regionale,°C,lst_day_mean_c,"Temperatură suprafață, zi",°C,0.868775399613,1818,0.868775399613
+temperature_max_c,Maxim al temperaturii medii regionale,°C,lst_night_mean_c,"Temperatură suprafață, noapte",°C,0.843420991648,1802,0.843420991648
+dewpoint_mean_c,Punct de rouă mediu,°C,lst_night_mean_c,"Temperatură suprafață, noapte",°C,0.792800621863,1802,0.792800621863
+dewpoint_mean_c,Punct de rouă mediu,°C,lst_day_mean_c,"Temperatură suprafață, zi",°C,0.762197428087,1818,0.762197428087
+solar_radiation_total_mjm2,Radiație solară totală,MJ/m²/zi,lst_day_mean_c,"Temperatură suprafață, zi",°C,0.73833515071,1818,0.73833515071
+temperature_mean_c,Temperatură medie aer,°C,ndvi_mean,NDVI regional,adimensional,-0.63567875267,1824,0.63567875267
+temperature_max_c,Maxim al temperaturii medii regionale,°C,ndvi_mean,NDVI regional,adimensional,-0.612941686766,1824,0.612941686766
+solar_radiation_total_mjm2,Radiație solară totală,MJ/m²/zi,lst_night_mean_c,"Temperatură suprafață, noapte",°C,0.610390699522,1802,0.610390699522
+solar_radiation_total_mjm2,Radiație solară totală,MJ/m²/zi,ndvi_mean,NDVI regional,adimensional,-0.548477171661,1824,0.548477171661
+dewpoint_mean_c,Punct de rouă mediu,°C,ndvi_mean,NDVI regional,adimensional,-0.500048529462,1824,0.500048529462
+soil_moisture_mean_m3m3,"Umiditate sol, strat 0–7 cm",m³/m³,lst_day_mean_c,"Temperatură suprafață, zi",°C,-0.441781008281,1818,0.441781008281
+soil_moisture_mean_m3m3,"Umiditate sol, strat 0–7 cm",m³/m³,lst_night_mean_c,"Temperatură suprafață, noapte",°C,-0.382513168572,1802,0.382513168572
+soil_moisture_mean_m3m3,"Umiditate sol, strat 0–7 cm",m³/m³,ndvi_mean,NDVI regional,adimensional,0.338352182792,1824,0.338352182792
+relative_humidity_mean_pct,Umiditate relativă medie,%,lst_day_mean_c,"Temperatură suprafață, zi",°C,-0.259493645416,1818,0.259493645416
+relative_humidity_mean_pct,Umiditate relativă medie,%,ndvi_mean,NDVI regional,adimensional,0.212993119886,1824,0.212993119886
+wind_speed_mean_mps,Viteză medie vânt,m/s,lst_night_mean_c,"Temperatură suprafață, noapte",°C,-0.190400025882,1802,0.190400025882
+wind_speed_mean_mps,Viteză medie vânt,m/s,lst_day_mean_c,"Temperatură suprafață, zi",°C,-0.18915576061,1818,0.18915576061
+relative_humidity_mean_pct,Umiditate relativă medie,%,lst_night_mean_c,"Temperatură suprafață, noapte",°C,-0.189093090899,1802,0.189093090899
+precipitation_total_mm,Precipitații totale,mm/zi,lst_day_mean_c,"Temperatură suprafață, zi",°C,0.132292960372,1818,0.132292960372
+precipitation_total_mm,Precipitații totale,mm/zi,ndvi_mean,NDVI regional,adimensional,-0.111249166685,1824,0.111249166685
+wind_speed_mean_mps,Viteză medie vânt,m/s,ndvi_mean,NDVI regional,adimensional,0.110674708664,1824,0.110674708664
+precipitation_total_mm,Precipitații totale,mm/zi,lst_night_mean_c,"Temperatură suprafață, noapte",°C,0.108649191698,1802,0.108649191698
+wind_speed_max_mps,Maxim al vitezei medii regionale,m/s,lst_night_mean_c,"Temperatură suprafață, noapte",°C,-0.0320204418306,1802,0.0320204418306
+wind_speed_max_mps,Maxim al vitezei medii regionale,m/s,lst_day_mean_c,"Temperatură suprafață, zi",°C,-0.016551963899,1818,0.016551963899
+wind_speed_max_mps,Maxim al vitezei medii regionale,m/s,ndvi_mean,NDVI regional,adimensional,-0.0111408706862,1824,0.0111408706862

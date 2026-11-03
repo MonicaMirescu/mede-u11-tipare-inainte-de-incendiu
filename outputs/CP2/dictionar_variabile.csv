@@ -1,0 +1,175 @@
+table,variable,dtype,source,label,unit,role,description,temporal_alignment,used_in_main_correlation
+X_principal,date,datetime64[ns],Calendar,date,zi UTC,identificator,Ziua investigată D,D,0
+X_principal,temperature_mean_c,float64,ERA5-Land,Temperatură medie aer,°C,predictor,Temperatură medie aer,ziua UTC D−1,1
+X_principal,temperature_max_c,float64,ERA5-Land,Maxim al temperaturii medii regionale,°C,predictor,Maxim al temperaturii medii regionale,ziua UTC D−1,1
+X_principal,dewpoint_mean_c,float64,ERA5-Land,Punct de rouă mediu,°C,predictor,Punct de rouă mediu,ziua UTC D−1,1
+X_principal,relative_humidity_mean_pct,float64,ERA5-Land,Umiditate relativă medie,%,predictor,Umiditate relativă medie,ziua UTC D−1,1
+X_principal,wind_speed_mean_mps,float64,ERA5-Land,Viteză medie vânt,m/s,predictor,Viteză medie vânt,ziua UTC D−1,1
+X_principal,wind_speed_max_mps,float64,ERA5-Land,Maxim al vitezei medii regionale,m/s,predictor,Maxim al vitezei medii regionale,ziua UTC D−1,1
+X_principal,precipitation_total_mm,float64,ERA5-Land,Precipitații totale,mm/zi,predictor,Precipitații totale,ziua UTC D−1,1
+X_principal,solar_radiation_total_mjm2,float64,ERA5-Land,Radiație solară totală,MJ/m²/zi,predictor,Radiație solară totală,ziua UTC D−1,1
+X_principal,soil_moisture_mean_m3m3,float64,ERA5-Land,"Umiditate sol, strat 0–7 cm",m³/m³,predictor,"Umiditate sol, strat 0–7 cm",ziua UTC D−1,1
+X_principal,era5_observation_date,datetime64[ns],ERA5-Land,era5 observation date,dată UTC,provenienta_temporala,Data ERA5 cerută D−1; păstrată chiar dacă lipsește din intervalul extras,ziua UTC D−1,0
+X_principal,era5_hourly_observations,float64,ERA5-Land,era5 hourly observations,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D−1,0
+X_principal,precipitation_interval_hours,float64,ERA5-Land,precipitation interval hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D−1,0
+X_principal,precipitation_complete,float64,ERA5-Land,precipitation complete,0/1,calitate_acoperire,1 = 24 intervale valide; totalul incomplet rămâne NaN,ziua UTC D−1,0
+X_principal,solar_radiation_interval_hours,float64,ERA5-Land,solar radiation interval hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D−1,0
+X_principal,solar_radiation_complete,float64,ERA5-Land,solar radiation complete,0/1,calitate_acoperire,1 = 24 intervale valide; totalul incomplet rămâne NaN,ziua UTC D−1,0
+X_principal,temperature_mean_c_missing,int32,ERA5-Land,temperature mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,temperature_max_c_missing,int32,ERA5-Land,temperature max c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,dewpoint_mean_c_missing,int32,ERA5-Land,dewpoint mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,relative_humidity_mean_pct_missing,int32,ERA5-Land,relative humidity mean pct missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,wind_speed_mean_mps_missing,int32,ERA5-Land,wind speed mean mps missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,wind_speed_max_mps_missing,int32,ERA5-Land,wind speed max mps missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,precipitation_total_mm_missing,int32,ERA5-Land,precipitation total mm missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,solar_radiation_total_mjm2_missing,int32,ERA5-Land,solar radiation total mjm2 missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,soil_moisture_mean_m3m3_missing,int32,ERA5-Land,soil moisture mean m3m3 missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_principal,ndvi_mean,float64,MODIS NDVI,NDVI regional,adimensional,predictor,NDVI regional,compozit cu sfârșit exclusiv ≤ D,1
+X_principal,ndvi_total_pixels,float64,MODIS NDVI,ndvi total pixels,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_valid_pixels_pct,float64,MODIS NDVI,ndvi valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_valid_pixel_count,float64,MODIS NDVI,ndvi valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_age_days,float64,MODIS NDVI,ndvi age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_carry_days,float64,MODIS NDVI,ndvi carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_is_carried,int64,MODIS NDVI,ndvi is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_composite_start,datetime64[ns],MODIS NDVI,ndvi composite start,dată UTC,provenienta_temporala,Începutul ferestrei conform metadatelor produsului,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_composite_end_exclusive,datetime64[ns],MODIS NDVI,ndvi composite end exclusive,dată UTC,provenienta_temporala,Prima clipă din afara ferestrei observațiilor,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_available_from,datetime64[ns],MODIS NDVI,ndvi available from,dată UTC,provenienta_temporala,Închiderea ferestrei observațiilor; nu data istorică de publicare,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,ndvi_mean_missing,int32,MODIS NDVI,ndvi mean missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_day_mean_c,float64,MODIS LST,"Temperatură suprafață, zi",°C,predictor,"Temperatură suprafață, zi",compozit cu sfârșit exclusiv ≤ D,1
+X_principal,lst_night_mean_c,float64,MODIS LST,"Temperatură suprafață, noapte",°C,predictor,"Temperatură suprafață, noapte",compozit cu sfârșit exclusiv ≤ D,1
+X_principal,lst_total_pixels,int64,MODIS LST,lst total pixels,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_composite_start,datetime64[ns],MODIS LST,lst composite start,dată UTC,provenienta_temporala,Începutul ferestrei conform metadatelor produsului,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_composite_end_exclusive,datetime64[ns],MODIS LST,lst composite end exclusive,dată UTC,provenienta_temporala,Prima clipă din afara ferestrei observațiilor,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_available_from,datetime64[ns],MODIS LST,lst available from,dată UTC,provenienta_temporala,Închiderea ferestrei observațiilor; nu data istorică de publicare,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_day_valid_pixels_pct,float64,MODIS LST,lst day valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_day_valid_pixel_count,int64,MODIS LST,lst day valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_day_age_days,float64,MODIS LST,lst day age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_day_carry_days,float64,MODIS LST,lst day carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_day_is_carried,int64,MODIS LST,lst day is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_night_valid_pixels_pct,float64,MODIS LST,lst night valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_night_valid_pixel_count,int64,MODIS LST,lst night valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_night_age_days,float64,MODIS LST,lst night age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_night_carry_days,float64,MODIS LST,lst night carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_night_is_carried,int64,MODIS LST,lst night is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_day_mean_c_missing,int32,MODIS LST,lst day mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,compozit cu sfârșit exclusiv ≤ D,0
+X_principal,lst_night_mean_c_missing,int32,MODIS LST,lst night mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,date,datetime64[ns],Calendar,date,zi UTC,identificator,Ziua investigată D,D,0
+X_sensibilitate,temperature_mean_c,float64,ERA5-Land,Temperatură medie aer,°C,predictor,Temperatură medie aer,ziua UTC D−1,0
+X_sensibilitate,temperature_max_c,float64,ERA5-Land,Maxim al temperaturii medii regionale,°C,predictor,Maxim al temperaturii medii regionale,ziua UTC D−1,0
+X_sensibilitate,dewpoint_mean_c,float64,ERA5-Land,Punct de rouă mediu,°C,predictor,Punct de rouă mediu,ziua UTC D−1,0
+X_sensibilitate,relative_humidity_mean_pct,float64,ERA5-Land,Umiditate relativă medie,%,predictor,Umiditate relativă medie,ziua UTC D−1,0
+X_sensibilitate,wind_speed_mean_mps,float64,ERA5-Land,Viteză medie vânt,m/s,predictor,Viteză medie vânt,ziua UTC D−1,0
+X_sensibilitate,wind_speed_max_mps,float64,ERA5-Land,Maxim al vitezei medii regionale,m/s,predictor,Maxim al vitezei medii regionale,ziua UTC D−1,0
+X_sensibilitate,precipitation_total_mm,float64,ERA5-Land,Precipitații totale,mm/zi,predictor,Precipitații totale,ziua UTC D−1,0
+X_sensibilitate,solar_radiation_total_mjm2,float64,ERA5-Land,Radiație solară totală,MJ/m²/zi,predictor,Radiație solară totală,ziua UTC D−1,0
+X_sensibilitate,soil_moisture_mean_m3m3,float64,ERA5-Land,"Umiditate sol, strat 0–7 cm",m³/m³,predictor,"Umiditate sol, strat 0–7 cm",ziua UTC D−1,0
+X_sensibilitate,era5_observation_date,datetime64[ns],ERA5-Land,era5 observation date,dată UTC,provenienta_temporala,Data ERA5 cerută D−1; păstrată chiar dacă lipsește din intervalul extras,ziua UTC D−1,0
+X_sensibilitate,era5_hourly_observations,float64,ERA5-Land,era5 hourly observations,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D−1,0
+X_sensibilitate,precipitation_interval_hours,float64,ERA5-Land,precipitation interval hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D−1,0
+X_sensibilitate,precipitation_complete,float64,ERA5-Land,precipitation complete,0/1,calitate_acoperire,1 = 24 intervale valide; totalul incomplet rămâne NaN,ziua UTC D−1,0
+X_sensibilitate,solar_radiation_interval_hours,float64,ERA5-Land,solar radiation interval hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D−1,0
+X_sensibilitate,solar_radiation_complete,float64,ERA5-Land,solar radiation complete,0/1,calitate_acoperire,1 = 24 intervale valide; totalul incomplet rămâne NaN,ziua UTC D−1,0
+X_sensibilitate,temperature_mean_c_missing,int32,ERA5-Land,temperature mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,temperature_max_c_missing,int32,ERA5-Land,temperature max c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,dewpoint_mean_c_missing,int32,ERA5-Land,dewpoint mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,relative_humidity_mean_pct_missing,int32,ERA5-Land,relative humidity mean pct missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,wind_speed_mean_mps_missing,int32,ERA5-Land,wind speed mean mps missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,wind_speed_max_mps_missing,int32,ERA5-Land,wind speed max mps missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,precipitation_total_mm_missing,int32,ERA5-Land,precipitation total mm missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,solar_radiation_total_mjm2_missing,int32,ERA5-Land,solar radiation total mjm2 missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,soil_moisture_mean_m3m3_missing,int32,ERA5-Land,soil moisture mean m3m3 missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,ziua UTC D−1,0
+X_sensibilitate,ndvi_mean,float64,MODIS NDVI,NDVI regional,adimensional,predictor,NDVI regional; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_total_pixels,float64,MODIS NDVI,ndvi total pixels,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_valid_pixels_pct,float64,MODIS NDVI,ndvi valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_valid_pixel_count,float64,MODIS NDVI,ndvi valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_age_days,float64,MODIS NDVI,ndvi age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_carry_days,float64,MODIS NDVI,ndvi carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_is_carried,int64,MODIS NDVI,ndvi is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_composite_start,datetime64[ns],MODIS NDVI,ndvi composite start,dată UTC,provenienta_temporala,Începutul ferestrei conform metadatelor produsului; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_composite_end_exclusive,datetime64[ns],MODIS NDVI,ndvi composite end exclusive,dată UTC,provenienta_temporala,Prima clipă din afara ferestrei observațiilor; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_available_from,datetime64[ns],MODIS NDVI,ndvi available from,dată UTC,provenienta_temporala,Închiderea ferestrei observațiilor; nu data istorică de publicare; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,ndvi_mean_missing,int32,MODIS NDVI,ndvi mean missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare; politică marginală justificată în acest tabel,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_day_mean_c,float64,MODIS LST,"Temperatură suprafață, zi",°C,predictor,"Temperatură suprafață, zi",compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_night_mean_c,float64,MODIS LST,"Temperatură suprafață, noapte",°C,predictor,"Temperatură suprafață, noapte",compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_total_pixels,int64,MODIS LST,lst total pixels,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_composite_start,datetime64[ns],MODIS LST,lst composite start,dată UTC,provenienta_temporala,Începutul ferestrei conform metadatelor produsului,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_composite_end_exclusive,datetime64[ns],MODIS LST,lst composite end exclusive,dată UTC,provenienta_temporala,Prima clipă din afara ferestrei observațiilor,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_available_from,datetime64[ns],MODIS LST,lst available from,dată UTC,provenienta_temporala,Închiderea ferestrei observațiilor; nu data istorică de publicare,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_day_valid_pixels_pct,float64,MODIS LST,lst day valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_day_valid_pixel_count,int64,MODIS LST,lst day valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_day_age_days,float64,MODIS LST,lst day age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_day_carry_days,float64,MODIS LST,lst day carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_day_is_carried,int64,MODIS LST,lst day is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_night_valid_pixels_pct,float64,MODIS LST,lst night valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_night_valid_pixel_count,int64,MODIS LST,lst night valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_night_age_days,float64,MODIS LST,lst night age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_night_carry_days,float64,MODIS LST,lst night carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_night_is_carried,int64,MODIS LST,lst night is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_day_mean_c_missing,int32,MODIS LST,lst day mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,compozit cu sfârșit exclusiv ≤ D,0
+X_sensibilitate,lst_night_mean_c_missing,int32,MODIS LST,lst night mean c missing,0/1,indicator_lipsa,1 = predictor lipsă; 0 = predictor prezent; nu este o imputare,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,date,datetime64[ns],Calendar,date,zi UTC,identificator,Ziua investigată D,D,0
+aliniat_complet,temperature_mean_c,float64,ERA5-Land,Temperatură medie aer,°C,observatie_contemporana,Temperatură medie aer,ziua UTC D,0
+aliniat_complet,temperature_max_c,float64,ERA5-Land,Maxim al temperaturii medii regionale,°C,observatie_contemporana,Maxim al temperaturii medii regionale,ziua UTC D,0
+aliniat_complet,dewpoint_mean_c,float64,ERA5-Land,Punct de rouă mediu,°C,observatie_contemporana,Punct de rouă mediu,ziua UTC D,0
+aliniat_complet,relative_humidity_mean_pct,float64,ERA5-Land,Umiditate relativă medie,%,observatie_contemporana,Umiditate relativă medie,ziua UTC D,0
+aliniat_complet,wind_speed_mean_mps,float64,ERA5-Land,Viteză medie vânt,m/s,observatie_contemporana,Viteză medie vânt,ziua UTC D,0
+aliniat_complet,wind_speed_max_mps,float64,ERA5-Land,Maxim al vitezei medii regionale,m/s,observatie_contemporana,Maxim al vitezei medii regionale,ziua UTC D,0
+aliniat_complet,precipitation_total_mm,float64,ERA5-Land,Precipitații totale,mm/zi,observatie_contemporana,Precipitații totale,ziua UTC D,0
+aliniat_complet,precipitation_partial_mm,float64,ERA5-Land,precipitation partial mm,mm,suma_partiala,Sumă numai pe intervalele disponibile; nu se folosește în X,ziua UTC D,0
+aliniat_complet,precipitation_interval_hours,int64,ERA5-Land,precipitation interval hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,precipitation_complete,int64,ERA5-Land,precipitation complete,0/1,calitate_acoperire,1 = 24 intervale valide; totalul incomplet rămâne NaN,ziua UTC D,0
+aliniat_complet,solar_radiation_total_mjm2,float64,ERA5-Land,Radiație solară totală,MJ/m²/zi,observatie_contemporana,Radiație solară totală,ziua UTC D,0
+aliniat_complet,solar_radiation_partial_mjm2,float64,ERA5-Land,solar radiation partial mjm2,MJ/m²,suma_partiala,Sumă numai pe intervalele disponibile; nu se folosește în X,ziua UTC D,0
+aliniat_complet,solar_radiation_interval_hours,int64,ERA5-Land,solar radiation interval hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,solar_radiation_complete,int64,ERA5-Land,solar radiation complete,0/1,calitate_acoperire,1 = 24 intervale valide; totalul incomplet rămâne NaN,ziua UTC D,0
+aliniat_complet,soil_moisture_mean_m3m3,float64,ERA5-Land,"Umiditate sol, strat 0–7 cm",m³/m³,observatie_contemporana,"Umiditate sol, strat 0–7 cm",ziua UTC D,0
+aliniat_complet,era5_hourly_observations,int64,ERA5-Land,era5 hourly observations,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,era5_t2m_valid_hours,int64,ERA5-Land,era5 t2m valid hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,era5_d2m_valid_hours,int64,ERA5-Land,era5 d2m valid hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,era5_u10_valid_hours,int64,ERA5-Land,era5 u10 valid hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,era5_v10_valid_hours,int64,ERA5-Land,era5 v10 valid hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,era5_swvl1_valid_hours,int64,ERA5-Land,era5 swvl1 valid hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,era5_rh_valid_hours,int64,ERA5-Land,era5 rh valid hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,era5_wind_valid_hours,int64,ERA5-Land,era5 wind valid hours,ore,calitate_acoperire,Număr de ore/intervale regionale valide,ziua UTC D,0
+aliniat_complet,viirs_detection_count,int64,VIIRS,viirs detection count,detecții,detectie_descriptiva,Înregistrări VIIRS observate; zero nu demonstrează absența incendiului,ziua UTC D,0
+aliniat_complet,viirs_frp_sum_mw,float64,VIIRS,viirs frp sum mw,MW,detectie_descriptiva,"Înregistrări VIIRS observate; zero nu demonstrează absența incendiului; suma FRP peste achiziții, nu energie zilnică sau putere simultană",ziua UTC D,0
+aliniat_complet,viirs_frp_max_mw,float64,VIIRS,viirs frp max mw,MW,detectie_descriptiva,Înregistrări VIIRS observate; zero nu demonstrează absența incendiului,ziua UTC D,0
+aliniat_complet,viirs_has_detection,int64,VIIRS,viirs has detection,0/1,detectie_descriptiva,Înregistrări VIIRS observate; zero nu demonstrează absența incendiului,ziua UTC D,0
+aliniat_complet,viirs_low_confidence_count,int64,VIIRS,viirs low confidence count,detecții,detectie_descriptiva,Înregistrări VIIRS observate; zero nu demonstrează absența incendiului; confidence l,ziua UTC D,0
+aliniat_complet,ndvi_composite_start,datetime64[ns],MODIS NDVI,ndvi composite start,dată UTC,provenienta_temporala,Începutul ferestrei conform metadatelor produsului,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_composite_end_exclusive,datetime64[ns],MODIS NDVI,ndvi composite end exclusive,dată UTC,provenienta_temporala,Prima clipă din afara ferestrei observațiilor,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_total_pixels,float64,MODIS NDVI,ndvi total pixels,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_mean,float64,MODIS NDVI,NDVI regional,adimensional,observatie_contemporana,NDVI regional,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_valid_pixels_pct,float64,MODIS NDVI,ndvi valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_valid_pixel_count,float64,MODIS NDVI,ndvi valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_justified_mean,float64,MODIS NDVI,ndvi justified mean,adimensional,sensibilitate_QA,NDVI cu marginale justificate prin QA detaliat,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_justified_valid_pixels_pct,float64,MODIS NDVI,ndvi justified valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_justified_valid_pixel_count,float64,MODIS NDVI,ndvi justified valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_justified_marginal_pixel_count,float64,MODIS NDVI,ndvi justified marginal pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_available_from,datetime64[ns],MODIS NDVI,ndvi available from,dată UTC,provenienta_temporala,Închiderea ferestrei observațiilor; nu data istorică de publicare,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_age_days,float64,MODIS NDVI,ndvi age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_carry_days,float64,MODIS NDVI,ndvi carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_is_carried,int64,MODIS NDVI,ndvi is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_justified_age_days,float64,MODIS NDVI,ndvi justified age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_justified_carry_days,float64,MODIS NDVI,ndvi justified carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,ndvi_justified_is_carried,int64,MODIS NDVI,ndvi justified is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_composite_start,datetime64[ns],MODIS LST,lst composite start,dată UTC,provenienta_temporala,Începutul ferestrei conform metadatelor produsului,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_composite_end_exclusive,datetime64[ns],MODIS LST,lst composite end exclusive,dată UTC,provenienta_temporala,Prima clipă din afara ferestrei observațiilor,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_total_pixels,int64,MODIS LST,lst total pixels,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_day_mean_c,float64,MODIS LST,"Temperatură suprafață, zi",°C,observatie_contemporana,"Temperatură suprafață, zi",compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_day_valid_pixels_pct,float64,MODIS LST,lst day valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_day_valid_pixel_count,int64,MODIS LST,lst day valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_night_mean_c,float64,MODIS LST,"Temperatură suprafață, noapte",°C,observatie_contemporana,"Temperatură suprafață, noapte",compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_night_valid_pixels_pct,float64,MODIS LST,lst night valid pixels pct,%,calitate_acoperire,Procent pixeli valizi din toate centrele selectate în BBOX,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_night_valid_pixel_count,int64,MODIS LST,lst night valid pixel count,pixeli,calitate_acoperire,Suport spațial al compozitului în BBOX; numărul rămâne asociat valorii reportate,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_available_from,datetime64[ns],MODIS LST,lst available from,dată UTC,provenienta_temporala,Închiderea ferestrei observațiilor; nu data istorică de publicare,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_day_age_days,float64,MODIS LST,lst day age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_day_carry_days,float64,MODIS LST,lst day carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_day_is_carried,int64,MODIS LST,lst day is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_night_age_days,float64,MODIS LST,lst night age days,zile,calitate_acoperire,Vechime față de ultima zi a ferestrei; minim 1; nu ziua exactă a achiziției pixelului,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_night_carry_days,float64,MODIS LST,lst night carry days,zile,calitate_acoperire,Zile de la prima alocare permisă după închiderea ferestrei; minim 0,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,lst_night_is_carried,int64,MODIS LST,lst night is carried,0/1,calitate_acoperire,1 = valoare repetată după prima alocare permisă; 0 nu înlocuiește valoarea lipsă,compozit cu sfârșit exclusiv ≤ D,0
+aliniat_complet,viirs_nominal_high_detection_count,int64,VIIRS,viirs nominal high detection count,detecții,detectie_descriptiva,Înregistrări VIIRS observate; zero nu demonstrează absența incendiului; numai confidence n/h,ziua UTC D,0
+aliniat_complet,viirs_nominal_high_frp_sum_mw,float64,VIIRS,viirs nominal high frp sum mw,MW,detectie_descriptiva,"Înregistrări VIIRS observate; zero nu demonstrează absența incendiului; numai confidence n/h; suma FRP peste achiziții, nu energie zilnică sau putere simultană",ziua UTC D,0
+aliniat_complet,viirs_nominal_high_frp_max_mw,float64,VIIRS,viirs nominal high frp max mw,MW,detectie_descriptiva,Înregistrări VIIRS observate; zero nu demonstrează absența incendiului; numai confidence n/h,ziua UTC D,0
+aliniat_complet,viirs_nominal_high_has_detection,int64,VIIRS,viirs nominal high has detection,0/1,detectie_descriptiva,Înregistrări VIIRS observate; zero nu demonstrează absența incendiului; numai confidence n/h,ziua UTC D,0

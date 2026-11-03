@@ -1,0 +1,16 @@
+source,column,days_with_value,days_missing,days_total,coverage_pct,carried_days,interpretation
+ERA5-Land,temperature_mean_c,1827,0,1827,100,0,numeric availability
+ERA5-Land,temperature_max_c,1827,0,1827,100,0,numeric availability
+ERA5-Land,dewpoint_mean_c,1827,0,1827,100,0,numeric availability
+ERA5-Land,relative_humidity_mean_pct,1827,0,1827,100,0,numeric availability
+ERA5-Land,wind_speed_mean_mps,1827,0,1827,100,0,numeric availability
+ERA5-Land,wind_speed_max_mps,1827,0,1827,100,0,numeric availability
+ERA5-Land,precipitation_total_mm,1826,1,1827,99.9452654625,0,numeric availability
+ERA5-Land,solar_radiation_total_mjm2,1826,1,1827,99.9452654625,0,numeric availability
+ERA5-Land,soil_moisture_mean_m3m3,1827,0,1827,100,0,numeric availability
+VIIRS detection records,viirs_detection_count,1827,0,1827,100,0,record count available; observation coverage unknown
+VIIRS detection records,viirs_has_detection,1827,0,1827,100,0,record count available; observation coverage unknown
+MODIS NDVI strict,ndvi_mean,1824,3,1827,99.8357963875,1709,numeric availability
+MODIS NDVI justified,ndvi_justified_mean,1824,3,1827,99.8357963875,1709,numeric availability
+MODIS LST,lst_day_mean_c,1819,8,1827,99.5621237001,1591,numeric availability
+MODIS LST,lst_night_mean_c,1803,24,1827,98.6863711002,1577,numeric availability

@@ -1,0 +1,152 @@
+table,variable,source,role,unit,n_total,n_valid,n_missing,missing_pct,imputed_days,carried_days_after_first_assignment
+X_principal,temperature_mean_c,ERA5-Land,predictor,°C,1827,1826,1,0.0547345374932,0,0
+X_principal,temperature_max_c,ERA5-Land,predictor,°C,1827,1826,1,0.0547345374932,0,0
+X_principal,dewpoint_mean_c,ERA5-Land,predictor,°C,1827,1826,1,0.0547345374932,0,0
+X_principal,relative_humidity_mean_pct,ERA5-Land,predictor,%,1827,1826,1,0.0547345374932,0,0
+X_principal,wind_speed_mean_mps,ERA5-Land,predictor,m/s,1827,1826,1,0.0547345374932,0,0
+X_principal,wind_speed_max_mps,ERA5-Land,predictor,m/s,1827,1826,1,0.0547345374932,0,0
+X_principal,precipitation_total_mm,ERA5-Land,predictor,mm/zi,1827,1826,1,0.0547345374932,0,0
+X_principal,solar_radiation_total_mjm2,ERA5-Land,predictor,MJ/m²/zi,1827,1826,1,0.0547345374932,0,0
+X_principal,soil_moisture_mean_m3m3,ERA5-Land,predictor,m³/m³,1827,1826,1,0.0547345374932,0,0
+X_principal,era5_hourly_observations,ERA5-Land,calitate_acoperire,ore,1827,1826,1,0.0547345374932,0,0
+X_principal,precipitation_interval_hours,ERA5-Land,calitate_acoperire,ore,1827,1826,1,0.0547345374932,0,0
+X_principal,precipitation_complete,ERA5-Land,calitate_acoperire,0/1,1827,1826,1,0.0547345374932,0,0
+X_principal,solar_radiation_interval_hours,ERA5-Land,calitate_acoperire,ore,1827,1826,1,0.0547345374932,0,0
+X_principal,solar_radiation_complete,ERA5-Land,calitate_acoperire,0/1,1827,1826,1,0.0547345374932,0,0
+X_principal,temperature_mean_c_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,temperature_max_c_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,dewpoint_mean_c_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,relative_humidity_mean_pct_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,wind_speed_mean_mps_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,wind_speed_max_mps_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,precipitation_total_mm_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,solar_radiation_total_mjm2_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,soil_moisture_mean_m3m3_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,ndvi_mean,MODIS NDVI,predictor,adimensional,1827,1824,3,0.164203612479,0,1709
+X_principal,ndvi_total_pixels,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+X_principal,ndvi_valid_pixels_pct,MODIS NDVI,calitate_acoperire,%,1827,1824,3,0.164203612479,0,0
+X_principal,ndvi_valid_pixel_count,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+X_principal,ndvi_age_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+X_principal,ndvi_carry_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+X_principal,ndvi_is_carried,MODIS NDVI,calitate_acoperire,0/1,1827,1827,0,0,0,0
+X_principal,ndvi_mean_missing,MODIS NDVI,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,lst_day_mean_c,MODIS LST,predictor,°C,1827,1819,8,0.437876299945,0,1591
+X_principal,lst_night_mean_c,MODIS LST,predictor,°C,1827,1803,24,1.31362889984,0,1577
+X_principal,lst_total_pixels,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+X_principal,lst_day_valid_pixels_pct,MODIS LST,calitate_acoperire,%,1827,1827,0,0,0,0
+X_principal,lst_day_valid_pixel_count,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+X_principal,lst_day_age_days,MODIS LST,calitate_acoperire,zile,1827,1819,8,0.437876299945,0,0
+X_principal,lst_day_carry_days,MODIS LST,calitate_acoperire,zile,1827,1819,8,0.437876299945,0,0
+X_principal,lst_day_is_carried,MODIS LST,calitate_acoperire,0/1,1827,1827,0,0,0,0
+X_principal,lst_night_valid_pixels_pct,MODIS LST,calitate_acoperire,%,1827,1827,0,0,0,0
+X_principal,lst_night_valid_pixel_count,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+X_principal,lst_night_age_days,MODIS LST,calitate_acoperire,zile,1827,1803,24,1.31362889984,0,0
+X_principal,lst_night_carry_days,MODIS LST,calitate_acoperire,zile,1827,1803,24,1.31362889984,0,0
+X_principal,lst_night_is_carried,MODIS LST,calitate_acoperire,0/1,1827,1827,0,0,0,0
+X_principal,lst_day_mean_c_missing,MODIS LST,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_principal,lst_night_mean_c_missing,MODIS LST,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,temperature_mean_c,ERA5-Land,predictor,°C,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,temperature_max_c,ERA5-Land,predictor,°C,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,dewpoint_mean_c,ERA5-Land,predictor,°C,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,relative_humidity_mean_pct,ERA5-Land,predictor,%,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,wind_speed_mean_mps,ERA5-Land,predictor,m/s,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,wind_speed_max_mps,ERA5-Land,predictor,m/s,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,precipitation_total_mm,ERA5-Land,predictor,mm/zi,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,solar_radiation_total_mjm2,ERA5-Land,predictor,MJ/m²/zi,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,soil_moisture_mean_m3m3,ERA5-Land,predictor,m³/m³,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,era5_hourly_observations,ERA5-Land,calitate_acoperire,ore,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,precipitation_interval_hours,ERA5-Land,calitate_acoperire,ore,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,precipitation_complete,ERA5-Land,calitate_acoperire,0/1,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,solar_radiation_interval_hours,ERA5-Land,calitate_acoperire,ore,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,solar_radiation_complete,ERA5-Land,calitate_acoperire,0/1,1827,1826,1,0.0547345374932,0,0
+X_sensibilitate,temperature_mean_c_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,temperature_max_c_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,dewpoint_mean_c_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,relative_humidity_mean_pct_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,wind_speed_mean_mps_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,wind_speed_max_mps_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,precipitation_total_mm_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,solar_radiation_total_mjm2_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,soil_moisture_mean_m3m3_missing,ERA5-Land,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,ndvi_mean,MODIS NDVI,predictor,adimensional,1827,1824,3,0.164203612479,0,1709
+X_sensibilitate,ndvi_total_pixels,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+X_sensibilitate,ndvi_valid_pixels_pct,MODIS NDVI,calitate_acoperire,%,1827,1824,3,0.164203612479,0,0
+X_sensibilitate,ndvi_valid_pixel_count,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+X_sensibilitate,ndvi_age_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+X_sensibilitate,ndvi_carry_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+X_sensibilitate,ndvi_is_carried,MODIS NDVI,calitate_acoperire,0/1,1827,1827,0,0,0,0
+X_sensibilitate,ndvi_mean_missing,MODIS NDVI,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,lst_day_mean_c,MODIS LST,predictor,°C,1827,1819,8,0.437876299945,0,1591
+X_sensibilitate,lst_night_mean_c,MODIS LST,predictor,°C,1827,1803,24,1.31362889984,0,1577
+X_sensibilitate,lst_total_pixels,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+X_sensibilitate,lst_day_valid_pixels_pct,MODIS LST,calitate_acoperire,%,1827,1827,0,0,0,0
+X_sensibilitate,lst_day_valid_pixel_count,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+X_sensibilitate,lst_day_age_days,MODIS LST,calitate_acoperire,zile,1827,1819,8,0.437876299945,0,0
+X_sensibilitate,lst_day_carry_days,MODIS LST,calitate_acoperire,zile,1827,1819,8,0.437876299945,0,0
+X_sensibilitate,lst_day_is_carried,MODIS LST,calitate_acoperire,0/1,1827,1827,0,0,0,0
+X_sensibilitate,lst_night_valid_pixels_pct,MODIS LST,calitate_acoperire,%,1827,1827,0,0,0,0
+X_sensibilitate,lst_night_valid_pixel_count,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+X_sensibilitate,lst_night_age_days,MODIS LST,calitate_acoperire,zile,1827,1803,24,1.31362889984,0,0
+X_sensibilitate,lst_night_carry_days,MODIS LST,calitate_acoperire,zile,1827,1803,24,1.31362889984,0,0
+X_sensibilitate,lst_night_is_carried,MODIS LST,calitate_acoperire,0/1,1827,1827,0,0,0,0
+X_sensibilitate,lst_day_mean_c_missing,MODIS LST,indicator_lipsa,0/1,1827,1827,0,0,0,0
+X_sensibilitate,lst_night_mean_c_missing,MODIS LST,indicator_lipsa,0/1,1827,1827,0,0,0,0
+aliniat_complet,temperature_mean_c,ERA5-Land,observatie_contemporana,°C,1827,1827,0,0,0,0
+aliniat_complet,temperature_max_c,ERA5-Land,observatie_contemporana,°C,1827,1827,0,0,0,0
+aliniat_complet,dewpoint_mean_c,ERA5-Land,observatie_contemporana,°C,1827,1827,0,0,0,0
+aliniat_complet,relative_humidity_mean_pct,ERA5-Land,observatie_contemporana,%,1827,1827,0,0,0,0
+aliniat_complet,wind_speed_mean_mps,ERA5-Land,observatie_contemporana,m/s,1827,1827,0,0,0,0
+aliniat_complet,wind_speed_max_mps,ERA5-Land,observatie_contemporana,m/s,1827,1827,0,0,0,0
+aliniat_complet,precipitation_total_mm,ERA5-Land,observatie_contemporana,mm/zi,1827,1826,1,0.0547345374932,0,0
+aliniat_complet,precipitation_partial_mm,ERA5-Land,suma_partiala,mm,1827,1827,0,0,0,0
+aliniat_complet,precipitation_interval_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,precipitation_complete,ERA5-Land,calitate_acoperire,0/1,1827,1827,0,0,0,0
+aliniat_complet,solar_radiation_total_mjm2,ERA5-Land,observatie_contemporana,MJ/m²/zi,1827,1826,1,0.0547345374932,0,0
+aliniat_complet,solar_radiation_partial_mjm2,ERA5-Land,suma_partiala,MJ/m²,1827,1827,0,0,0,0
+aliniat_complet,solar_radiation_interval_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,solar_radiation_complete,ERA5-Land,calitate_acoperire,0/1,1827,1827,0,0,0,0
+aliniat_complet,soil_moisture_mean_m3m3,ERA5-Land,observatie_contemporana,m³/m³,1827,1827,0,0,0,0
+aliniat_complet,era5_hourly_observations,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,era5_t2m_valid_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,era5_d2m_valid_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,era5_u10_valid_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,era5_v10_valid_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,era5_swvl1_valid_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,era5_rh_valid_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,era5_wind_valid_hours,ERA5-Land,calitate_acoperire,ore,1827,1827,0,0,0,0
+aliniat_complet,viirs_detection_count,VIIRS,detectie_descriptiva,detecții,1827,1827,0,0,0,0
+aliniat_complet,viirs_frp_sum_mw,VIIRS,detectie_descriptiva,MW,1827,1827,0,0,0,0
+aliniat_complet,viirs_frp_max_mw,VIIRS,detectie_descriptiva,MW,1827,24,1803,98.6863711002,0,0
+aliniat_complet,viirs_has_detection,VIIRS,detectie_descriptiva,0/1,1827,1827,0,0,0,0
+aliniat_complet,viirs_low_confidence_count,VIIRS,detectie_descriptiva,detecții,1827,1827,0,0,0,0
+aliniat_complet,ndvi_total_pixels,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_mean,MODIS NDVI,observatie_contemporana,adimensional,1827,1824,3,0.164203612479,0,1709
+aliniat_complet,ndvi_valid_pixels_pct,MODIS NDVI,calitate_acoperire,%,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_valid_pixel_count,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_justified_mean,MODIS NDVI,sensibilitate_QA,adimensional,1827,1824,3,0.164203612479,0,1709
+aliniat_complet,ndvi_justified_valid_pixels_pct,MODIS NDVI,calitate_acoperire,%,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_justified_valid_pixel_count,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_justified_marginal_pixel_count,MODIS NDVI,calitate_acoperire,pixeli,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_age_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_carry_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_is_carried,MODIS NDVI,calitate_acoperire,0/1,1827,1827,0,0,0,0
+aliniat_complet,ndvi_justified_age_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_justified_carry_days,MODIS NDVI,calitate_acoperire,zile,1827,1824,3,0.164203612479,0,0
+aliniat_complet,ndvi_justified_is_carried,MODIS NDVI,calitate_acoperire,0/1,1827,1827,0,0,0,0
+aliniat_complet,lst_total_pixels,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+aliniat_complet,lst_day_mean_c,MODIS LST,observatie_contemporana,°C,1827,1819,8,0.437876299945,0,1591
+aliniat_complet,lst_day_valid_pixels_pct,MODIS LST,calitate_acoperire,%,1827,1827,0,0,0,0
+aliniat_complet,lst_day_valid_pixel_count,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+aliniat_complet,lst_night_mean_c,MODIS LST,observatie_contemporana,°C,1827,1803,24,1.31362889984,0,1577
+aliniat_complet,lst_night_valid_pixels_pct,MODIS LST,calitate_acoperire,%,1827,1827,0,0,0,0
+aliniat_complet,lst_night_valid_pixel_count,MODIS LST,calitate_acoperire,pixeli,1827,1827,0,0,0,0
+aliniat_complet,lst_day_age_days,MODIS LST,calitate_acoperire,zile,1827,1819,8,0.437876299945,0,0
+aliniat_complet,lst_day_carry_days,MODIS LST,calitate_acoperire,zile,1827,1819,8,0.437876299945,0,0
+aliniat_complet,lst_day_is_carried,MODIS LST,calitate_acoperire,0/1,1827,1827,0,0,0,0
+aliniat_complet,lst_night_age_days,MODIS LST,calitate_acoperire,zile,1827,1803,24,1.31362889984,0,0
+aliniat_complet,lst_night_carry_days,MODIS LST,calitate_acoperire,zile,1827,1803,24,1.31362889984,0,0
+aliniat_complet,lst_night_is_carried,MODIS LST,calitate_acoperire,0/1,1827,1827,0,0,0,0
+aliniat_complet,viirs_nominal_high_detection_count,VIIRS,detectie_descriptiva,detecții,1827,1827,0,0,0,0
+aliniat_complet,viirs_nominal_high_frp_sum_mw,VIIRS,detectie_descriptiva,MW,1827,1827,0,0,0,0
+aliniat_complet,viirs_nominal_high_frp_max_mw,VIIRS,detectie_descriptiva,MW,1827,23,1804,98.7411056377,0,0
+aliniat_complet,viirs_nominal_high_has_detection,VIIRS,detectie_descriptiva,0/1,1827,1827,0,0,0,0
