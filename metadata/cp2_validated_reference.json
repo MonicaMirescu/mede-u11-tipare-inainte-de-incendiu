@@ -1,0 +1,28 @@
+{
+  "validated_commit": "47782513a066921737ad93db5c5f30ee69ca6e9f",
+  "selection": "X și corelații neschimbate; statistici numai 12 predictori; dicționar/acoperire numai tabelele principale; tabel complet fără coloanele NDVI alternative. Nicio valoare reestimată. Dicționarul exclude dtype, un detaliu de stocare dependent de platformă; definițiile variabilelor rămân identice.",
+  "hash_convention": "SHA-256 text UTF-8 CRLF->LF",
+  "inputs": [
+    {
+      "file": "7b19e174e6ab37f8e9487689f8a66e8c - ERA5-LAND.zip",
+      "sha256": "6c19373154beea8c53a482064831a01285d016daf017af444f7f96afefceefb9"
+    },
+    {
+      "file": "DL_FIRE_SV-C2_822332 - VIIRS Active Fire.zip",
+      "sha256": "26aacc0beec0925faf4b4bb885f7aea56d3e44d021dbab9c8094139d7a2e7193"
+    },
+    {
+      "file": "MODIS NDVILST.zip",
+      "sha256": "9155186c4e1422f72d2d2ba745f3d41017c4f918904ec47e4ab8eba112636e36"
+    }
+  ],
+  "csv_sha256": {
+    "acoperire_surse.csv": "e783a6f8d8649333ac479256987a41bdf9fdfd69c95128b52302bbf3cb116cf0",
+    "acoperire_variabile.csv": "a6625261373f4c6989a0a3cba8359119d68f6e9f32cb5f4d7f5e0fe286c9a2d0",
+    "corelatii_ERA5_MODIS.csv": "68dc5d53d40f06eb77bb47e3febc8bfd4bbfbdcf8654338f34ad04dc94633397",
+    "dictionar_variabile.csv": "db4fd171f9682bd6fa1125547762bc9b9acb08cee79adbfb71bc2d616e995109",
+    "matrice_X.csv": "1792a1f777cf546676f307e6f6dea6b4c31674a970f4fc5bd999a62f3319ce78",
+    "statistici_predictori.csv": "11e272d633d2227f63c30df2500211f4ee80c15f3fc7906628e155b5a97b0b0d",
+    "tabel_aliniat_complet.csv": "7b6791b61750e971c58240519d5a538bb8e5a3f462771f8bde22dfe45d7e1077"
+  }
+}

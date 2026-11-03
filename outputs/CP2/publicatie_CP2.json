@@ -1,0 +1,62 @@
+{
+  "purpose": "Livrabil academic CP2 final, fără rezultate auxiliare",
+  "hash_convention": "SHA-256; PNG exact; text UTF-8 CRLF→LF",
+  "published_artifacts": [
+    "acoperire_surse.csv",
+    "acoperire_variabile.csv",
+    "corelatii_ERA5_MODIS.csv",
+    "dictionar_variabile.csv",
+    "grafice/aliniere_surse.png",
+    "grafice/corelatii_intre_surse.png",
+    "grafice/distributii_selectate.png",
+    "grafice/preview_matrice_X.png",
+    "manifest_CP2.json",
+    "matrice_X.csv",
+    "metodologie_CP2.md",
+    "publicatie_CP2.json",
+    "statistici_predictori.csv",
+    "tabel_aliniat_complet.csv",
+    "validare_CP2.json"
+  ],
+  "artifact_sha256": {
+    "acoperire_surse.csv": "e783a6f8d8649333ac479256987a41bdf9fdfd69c95128b52302bbf3cb116cf0",
+    "acoperire_variabile.csv": "a6625261373f4c6989a0a3cba8359119d68f6e9f32cb5f4d7f5e0fe286c9a2d0",
+    "corelatii_ERA5_MODIS.csv": "68dc5d53d40f06eb77bb47e3febc8bfd4bbfbdcf8654338f34ad04dc94633397",
+    "dictionar_variabile.csv": "db4fd171f9682bd6fa1125547762bc9b9acb08cee79adbfb71bc2d616e995109",
+    "grafice/aliniere_surse.png": "2ee7cd0541e44529a1b27c5e7521c5d9de564b7ce0c79805f1cd352e688b0c5c",
+    "grafice/corelatii_intre_surse.png": "e70cc46f922e74a79cf50a6bfebf01ce2bcdb6c5609b2ec370734b60aca9e86d",
+    "grafice/distributii_selectate.png": "2d464bd7a8879b388b37bc02cbda65392609dc9f10095c890f409e50f4003cce",
+    "grafice/preview_matrice_X.png": "44994dc12f2653a71e61457e8372eb8831f723bf62e3a62d8c8770e34bcc3022",
+    "manifest_CP2.json": "139f5bf881a48b4763b0bf4b2ee444e29879c83eea286b3d00aec8102af4f44b",
+    "matrice_X.csv": "1792a1f777cf546676f307e6f6dea6b4c31674a970f4fc5bd999a62f3319ce78",
+    "metodologie_CP2.md": "1d9f906946b83cc9e0f6fd6ed9db165e73ac1288a5888af174cea9e1d7a796bb",
+    "statistici_predictori.csv": "11e272d633d2227f63c30df2500211f4ee80c15f3fc7906628e155b5a97b0b0d",
+    "tabel_aliniat_complet.csv": "7b6791b61750e971c58240519d5a538bb8e5a3f462771f8bde22dfe45d7e1077",
+    "validare_CP2.json": "6931ae6528bfe7408c31f709c7e52898a0c62cd053edc103314aadf6d752e136"
+  },
+  "validation": {
+    "status": "passed",
+    "days": 1827,
+    "physical_predictors": 12,
+    "matrix_csv_columns": 54,
+    "csv_files_verified": 7,
+    "png_files_verified": 4,
+    "descriptive_predictors": 12,
+    "cross_source_pairs": 27,
+    "validated_reference": "47782513a066921737ad93db5c5f30ee69ca6e9f",
+    "csv_identical_to_validated_selection": true,
+    "scientific_checks": [
+      "fluxuri/completitudine ERA5",
+      "QA strict și suport MODIS",
+      "ferestre/vechime fără viitor",
+      "VIIRS low separat",
+      "D−1",
+      "NaN explicit",
+      "statistici",
+      "Spearman/n pe perechi",
+      "dicționar/acoperire"
+    ]
+  },
+  "raw_data_policy": "ZIP/NetCDF și date/raw originale excluse; numai data/raw/INSTRUCTIUNI.txt este versionat",
+  "reproduction": "python -X utf8 -B run_cp2.py --input-dir data/raw --output-dir outputs/CP2"
+}

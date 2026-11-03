@@ -1,0 +1,240 @@
+{
+  "delivery": "CP2 final: 7 CSV, 4 PNG; fără analize auxiliare publicate",
+  "period": {
+    "start": "2020-01-01",
+    "end": "2024-12-31",
+    "days": 1827
+  },
+  "bbox": {
+    "north": 40.2,
+    "south": 39.7,
+    "west": -1.0,
+    "east": -0.4
+  },
+  "era5_lag_days": 1,
+  "ndvi_main_policy": "strict",
+  "matrix_csv_shape": [
+    1827,
+    54
+  ],
+  "physical_predictor_shape": [
+    1827,
+    12
+  ],
+  "predictors": [
+    "temperature_mean_c",
+    "temperature_max_c",
+    "dewpoint_mean_c",
+    "relative_humidity_mean_pct",
+    "wind_speed_mean_mps",
+    "wind_speed_max_mps",
+    "precipitation_total_mm",
+    "solar_radiation_total_mjm2",
+    "soil_moisture_mean_m3m3",
+    "ndvi_mean",
+    "lst_day_mean_c",
+    "lst_night_mean_c"
+  ],
+  "inputs": [
+    {
+      "file": "7b19e174e6ab37f8e9487689f8a66e8c - ERA5-LAND.zip",
+      "sha256": "6c19373154beea8c53a482064831a01285d016daf017af444f7f96afefceefb9"
+    },
+    {
+      "file": "DL_FIRE_SV-C2_822332 - VIIRS Active Fire.zip",
+      "sha256": "26aacc0beec0925faf4b4bb885f7aea56d3e44d021dbab9c8094139d7a2e7193"
+    },
+    {
+      "file": "MODIS NDVILST.zip",
+      "sha256": "9155186c4e1422f72d2d2ba745f3d41017c4f918904ec47e4ab8eba112636e36"
+    }
+  ],
+  "ingestion_audit": {
+    "study_area": "Bejís–Villanueva de Viver, Castellón, Spain",
+    "bbox": {
+      "north": 40.2,
+      "south": 39.7,
+      "west": -1.0,
+      "east": -0.4
+    },
+    "period": {
+      "start": "2020-01-01",
+      "end": "2024-12-31",
+      "days": 1827
+    },
+    "era5_hours": 43848,
+    "era5_grid_points": 30,
+    "era5": {
+      "grid_points": 30,
+      "latitude_centers": [
+        39.70000000000113,
+        39.800000000001134,
+        39.900000000001135,
+        40.00000000000114,
+        40.10000000000114
+      ],
+      "longitude_centers": [
+        -0.9999999999868123,
+        -0.8999999999869033,
+        -0.7999999999867669,
+        -0.6999999999868578,
+        -0.5999999999867214,
+        -0.4999999999868123
+      ],
+      "raw_hourly_timestamps": 43848,
+      "negative_rounding": {
+        "ssrd": {
+          "clipped_cell_hours": 6057,
+          "minimum_raw": -4.0,
+          "tolerance_native_units": 5.0
+        },
+        "tp": {
+          "clipped_cell_hours": 22507,
+          "minimum_raw": -5.477340891957283e-08,
+          "tolerance_native_units": 1e-07
+        }
+      },
+      "incomplete_days": [
+        "2024-12-31"
+      ]
+    },
+    "required_extra_data": "tp and ssrd at 2025-01-01 00:00 UTC (interval 2024-12-31 23:00–2025-01-01 00:00), same grid, same de-accumulated source",
+    "inputs": [
+      {
+        "file": "7b19e174e6ab37f8e9487689f8a66e8c - ERA5-LAND.zip",
+        "sha256": "6c19373154beea8c53a482064831a01285d016daf017af444f7f96afefceefb9"
+      },
+      {
+        "file": "DL_FIRE_SV-C2_822332 - VIIRS Active Fire.zip",
+        "sha256": "26aacc0beec0925faf4b4bb885f7aea56d3e44d021dbab9c8094139d7a2e7193"
+      },
+      {
+        "file": "MODIS NDVILST.zip",
+        "sha256": "9155186c4e1422f72d2d2ba745f3d41017c4f918904ec47e4ab8eba112636e36"
+      }
+    ],
+    "modis_metadata_sha256": "a2cac946e75f8d8f83d1cc97f701f36214ba5b708ac50a9c24230e5b9aa9886d",
+    "viirs_detections": 1249,
+    "viirs_days_with_detection": 24,
+    "viirs": {
+      "confidence_counts": {
+        "n": 1082,
+        "h": 103,
+        "l": 64
+      },
+      "filtered_detections": 1185,
+      "filtered_days_with_detection": 23,
+      "observation_coverage": "unknown; detection-only archive",
+      "frp_sum_meaning": "Sum of observed pixel FRP across acquisitions, not daily energy or simultaneous regional power"
+    },
+    "modis": {
+      "ndvi_composites_total": 116,
+      "lst_composites_total": 230,
+      "ndvi_composites_with_valid_pixels": 116,
+      "ndvi_justified_composites_with_valid_pixels": 116,
+      "lst_day_composites_with_valid_pixels": 229,
+      "lst_night_composites_with_valid_pixels": 227,
+      "source_metadata": {
+        "MOD11A2.061": {
+          "time_bounds_source": "NASA CMR cached temporal bounds",
+          "pixel_count": 4320,
+          "grid_shape_selected": [
+            60,
+            72
+          ],
+          "time_units": "seconds since 2000-01-01 00:00:00+00:00",
+          "calendar": "julian"
+        },
+        "MOD13Q1.061": {
+          "time_bounds_source": "NASA CMR cached temporal bounds",
+          "pixel_count": 69120,
+          "grid_shape_selected": [
+            240,
+            288
+          ],
+          "time_units": "seconds since 2000-01-01 00:00:00+00:00",
+          "calendar": "julian"
+        }
+      },
+      "default_ndvi_policy": "strict",
+      "available_from_meaning": "Observation window end, not historical publication date",
+      "max_carry_days_after_window_end": {
+        "ndvi": 32,
+        "lst": 16
+      }
+    },
+    "method": "UTC day; interval-ending ERA5 accumulations shifted by 1h; cell RH before mean; MODIS metadata window bounds; NDVI strict plus justified QA variant",
+    "note": "No VIIRS detection is not proof that no fire occurred."
+  },
+  "ingestion_validation": "passed; inclusiv QA compozite strict/justified/legacy, înaintea eliminării intermediarilor",
+  "source_sha256": {
+    ".gitignore": "e8c0ac0aaf3748e68aaa138ea07521b81d48a0cfa0fe9013c68e466689683b42",
+    "README.md": "0d739330511c114d2a51730d59ede3817b9ba27414b32c8fee37a70c35390d10",
+    "docs/CP2_CERINTE.md": "646a3a5e5a5628a4b060c05cc02b30c5c67f03d654c50275571402e6c29f75d3",
+    "requirements.txt": "192baeca5369f95cac0fba852c4409e3a870dc6c595de7d10cb7eb0eaf02d8fa",
+    "run_pipeline.py": "d3a0e232fd68637b367f62a892950eb65b070478579e5e9f688d3cbfe9dfc83e",
+    "pipeline_methods.py": "6c0687789e7fc00bb84dca87d4e59b985f426a3de5a684c53c6f891116dd0c90",
+    "validate_outputs.py": "78cb7f41597a55fbc79da4549c23ab4716583b8498ad2dcccfc826a577d55d5b",
+    "cp2_analysis.py": "e8688b44eddd54396e29df6514ba8599bd4f77416e2d89fb7865df16e0f8231a",
+    "cp2_delivery.py": "422fe22436e3dfd1371a1a2e79d67ae260eef2bf5d0011307e15717b574ebc53",
+    "cp2_figures.py": "c2708bd1b9dfd1d682713a36606aba34bd5a07a06e5e2bf3c4d187a125735eb0",
+    "run_cp2.py": "3fb0e1bb9be1c50b619852ecc2773c1babab3c143ef7b3683b9477334f3618a2",
+    "validate_cp2.py": "987299c9e69972a8389de6f735dc52d1cb54b8e7fbafabaecbb52ec72267505b",
+    "prepare_publication.py": "1022651402750a916628fed605500a72a5a2cb950cd2844cd63986bb5ae7b8bf",
+    "tests/test_cp2.py": "21b9f414c260219e7d6d804dc848d64bef64fec4ed3be69bfe1d39e3dc83c451",
+    "tests/test_pipeline.py": "47acd8ff04e95177269a52bc50bf34fdb98b8c7b08d8adcc2f5dc74cd1273194",
+    "tests/test_cp2_final.py": "47b7c4284c1449e17fa217637020c3d8f0e6f7e7d6b1196e56c7b907f92173de",
+    "metadata/README.md": "8a42a3a2c692edcb21cd6fef3253df52ca86fc17ac11efd991e21e4b87bc3eb3",
+    "metadata/modis_composite_periods.json": "83acb1250e3639bba950b41e8221de925a5404285e519cefd975381a6a33d20c",
+    "metadata/cp2_validated_reference.json": "194a2677f6d08b958fbe147390586a687207513762963251d2ca36cbd344eb64"
+  },
+  "hash_convention": "SHA-256; PNG exact; text UTF-8 CRLF→LF",
+  "versions": {
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "matplotlib": "3.9.2"
+  },
+  "numeric_conventions": {
+    "correlation": "Spearman; pairwise complete; average ranks",
+    "std_ddof": 1,
+    "quantile_interpolation": "linear",
+    "imputation": "none",
+    "csv_float_format": "%.12g"
+  },
+  "tests": {
+    "tests_run": 39,
+    "exit_code": 0
+  },
+  "generated_files": [
+    "acoperire_surse.csv",
+    "acoperire_variabile.csv",
+    "corelatii_ERA5_MODIS.csv",
+    "dictionar_variabile.csv",
+    "grafice/aliniere_surse.png",
+    "grafice/corelatii_intre_surse.png",
+    "grafice/distributii_selectate.png",
+    "grafice/preview_matrice_X.png",
+    "manifest_CP2.json",
+    "matrice_X.csv",
+    "metodologie_CP2.md",
+    "publicatie_CP2.json",
+    "statistici_predictori.csv",
+    "tabel_aliniat_complet.csv",
+    "validare_CP2.json"
+  ],
+  "output_sha256": {
+    "matrice_X.csv": "1792a1f777cf546676f307e6f6dea6b4c31674a970f4fc5bd999a62f3319ce78",
+    "tabel_aliniat_complet.csv": "7b6791b61750e971c58240519d5a538bb8e5a3f462771f8bde22dfe45d7e1077",
+    "dictionar_variabile.csv": "db4fd171f9682bd6fa1125547762bc9b9acb08cee79adbfb71bc2d616e995109",
+    "statistici_predictori.csv": "11e272d633d2227f63c30df2500211f4ee80c15f3fc7906628e155b5a97b0b0d",
+    "corelatii_ERA5_MODIS.csv": "68dc5d53d40f06eb77bb47e3febc8bfd4bbfbdcf8654338f34ad04dc94633397",
+    "acoperire_surse.csv": "e783a6f8d8649333ac479256987a41bdf9fdfd69c95128b52302bbf3cb116cf0",
+    "acoperire_variabile.csv": "a6625261373f4c6989a0a3cba8359119d68f6e9f32cb5f4d7f5e0fe286c9a2d0",
+    "grafice/aliniere_surse.png": "2ee7cd0541e44529a1b27c5e7521c5d9de564b7ce0c79805f1cd352e688b0c5c",
+    "grafice/preview_matrice_X.png": "44994dc12f2653a71e61457e8372eb8831f723bf62e3a62d8c8770e34bcc3022",
+    "grafice/distributii_selectate.png": "2d464bd7a8879b388b37bc02cbda65392609dc9f10095c890f409e50f4003cce",
+    "grafice/corelatii_intre_surse.png": "e70cc46f922e74a79cf50a6bfebf01ce2bcdb6c5609b2ec370734b60aca9e86d",
+    "metodologie_CP2.md": "1d9f906946b83cc9e0f6fd6ed9db165e73ac1288a5888af174cea9e1d7a796bb"
+  }
+}

@@ -1,0 +1,4 @@
+source,n_predictors,n_days,n_cells,n_valid_cells,n_missing_cells,missing_cells_pct,days_with_any_missing,days_all_predictors_valid
+ERA5-Land,9,1827,16443,16434,9,0.0547345374932,1,1826
+MODIS NDVI,1,1827,1827,1824,3,0.164203612479,3,1824
+MODIS LST,2,1827,3654,3622,32,0.875752599891,24,1803
