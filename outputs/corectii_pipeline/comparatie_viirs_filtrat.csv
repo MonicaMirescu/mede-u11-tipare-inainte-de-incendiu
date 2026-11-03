@@ -1,5 +1,0 @@
-variable,before_days,after_days,changed_common_days,changed_at_5_decimals,lost_days,gained_days,affected_days,max_abs_difference
-viirs_detection_count,1827,1827,8,8,0,0,8,27
-viirs_frp_sum_mw,1827,1827,8,8,0,0,8,1913.44
-viirs_frp_max_mw,24,23,1,1,1,0,2,219.06
-viirs_has_detection,1827,1827,1,1,0,0,1,1

@@ -3,8 +3,22 @@
   "days": 1827,
   "physical_predictors": 12,
   "matrix_csv_columns": 54,
-  "numeric_statistics_rows": 151,
-  "png_files_verified": 31,
-  "distribution_variable_scenarios": 151,
-  "source_tests_passed": 31
+  "csv_files_verified": 7,
+  "png_files_verified": 4,
+  "descriptive_predictors": 12,
+  "cross_source_pairs": 27,
+  "validated_reference": "47782513a066921737ad93db5c5f30ee69ca6e9f",
+  "csv_identical_to_validated_selection": true,
+  "scientific_checks": [
+    "fluxuri/completitudine ERA5",
+    "QA strict și suport MODIS",
+    "ferestre/vechime fără viitor",
+    "VIIRS low separat",
+    "D−1",
+    "NaN explicit",
+    "statistici",
+    "Spearman/n pe perechi",
+    "dicționar/acoperire"
+  ],
+  "source_tests_passed": 39
 }

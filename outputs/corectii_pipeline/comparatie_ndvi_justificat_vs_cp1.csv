@@ -1,3 +1,0 @@
-variable,before_days,after_days,changed_common_days,changed_at_5_decimals,lost_days,gained_days,affected_days,max_abs_difference
-ndvi_mean,1824,1824,1824,1824,0,0,1824,0.013711385834
-ndvi_valid_pixels_pct,1824,1824,1824,1824,0,0,1824,33.091724537

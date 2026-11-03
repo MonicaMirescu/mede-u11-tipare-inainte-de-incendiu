@@ -14,6 +14,13 @@ def require(condition, message):
 def validate(path):
     path = Path(path)
     df = pd.read_csv(path / "dataset_aliniat_zilnic.csv", parse_dates=["date"])
+    viirs = pd.read_csv(path / "viirs_daily_nominal_high.csv")
+    qa = pd.read_csv(path / "ndvi_qa_comparison.csv")
+    return validate_frame(df, viirs, qa)
+
+
+def validate_frame(df, viirs, qa=None):
+    """Aceleași verificări științifice, inclusiv pentru tabelul complet CP2."""
     require(df.date.equals(pd.Series(DAYS, name="date")), "Calendar zilnic incorect")
     require((df.era5_hourly_observations == 24).all(), "Ore ERA5 instantanee incomplete")
     for prefix, unit in [("precipitation", "mm"), ("solar_radiation", "mjm2")]:
@@ -25,7 +32,10 @@ def validate(path):
         require(np.allclose(total[complete], partial[complete]), f"Total/sumă parțială diferite {prefix}")
         require((partial.dropna() >= 0).all(), f"Valori negative {prefix}")
     require(df.relative_humidity_mean_pct.dropna().between(0, 100).all(), "RH în afara intervalului")
-    for label, span, values in [("ndvi", 16, {"ndvi_mean":"ndvi", "ndvi_justified_mean":"ndvi_justified"}),
+    ndvi_values = {"ndvi_mean": "ndvi"}
+    if "ndvi_justified_mean" in df:
+        ndvi_values["ndvi_justified_mean"] = "ndvi_justified"
+    for label, span, values in [("ndvi", 16, ndvi_values),
                                  ("lst", 8, {"lst_day_mean_c":"lst_day", "lst_night_mean_c":"lst_night"})]:
         start = pd.to_datetime(df[f"{label}_composite_start"])
         end = pd.to_datetime(df[f"{label}_composite_end_exclusive"])
@@ -48,18 +58,18 @@ def validate(path):
             require(np.allclose(pct[present], 100*count[present]/df[f"{label}_total_pixels"][present]), "Procent diferit de număr pixeli")
             low, high = (-.2, 1) if label == "ndvi" else (-73.15, 86.85)
             require(df[value].dropna().between(low, high).all(), "Valoare MODIS invalidă")
-    present = df.ndvi_valid_pixel_count.notna()
-    require(df.ndvi_valid_pixel_count[present].le(df.ndvi_justified_valid_pixel_count[present]).all(), "QA strict nu este submulțime")
-    viirs = pd.read_csv(path / "viirs_daily_nominal_high.csv")
+    if "ndvi_justified_valid_pixel_count" in df:
+        present = df.ndvi_valid_pixel_count.notna()
+        require(df.ndvi_valid_pixel_count[present].le(df.ndvi_justified_valid_pixel_count[present]).all(), "QA strict nu este submulțime")
     require(viirs.date.equals(df.date.dt.strftime("%Y-%m-%d")), "Calendar VIIRS filtrat diferit")
     require(df.viirs_detection_count.eq(viirs.viirs_detection_count + df.viirs_low_confidence_count).all(), "Separare confidence incorectă")
     for frame in [df, viirs]:
         require(frame.viirs_detection_count.ge(0).all(), "Număr negativ de detecții")
         require(frame.viirs_has_detection.eq(frame.viirs_detection_count.gt(0).astype(int)).all(), "Flag VIIRS incorect")
         require(frame.loc[frame.viirs_detection_count.eq(0), "viirs_frp_max_mw"].isna().all(), "FRP maxim inventat fără detecții")
-    qa = pd.read_csv(path / "ndvi_qa_comparison.csv")
-    counts = qa.pivot(index="composite_start", columns="variant", values="valid_pixel_count")
-    require((counts.strict <= counts.justified).all() and (counts.justified <= counts.legacy).all(), "Variante QA inconsistente")
+    if qa is not None:
+        counts = qa.pivot(index="composite_start", columns="variant", values="valid_pixel_count")
+        require((counts.strict <= counts.justified).all() and (counts.justified <= counts.legacy).all(), "Variante QA inconsistente")
     return df
 
 

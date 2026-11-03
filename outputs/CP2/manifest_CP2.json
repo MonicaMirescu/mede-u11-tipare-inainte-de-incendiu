@@ -1,4 +1,5 @@
 {
+  "delivery": "CP2 final: 7 CSV, 4 PNG; fără analize auxiliare publicate",
   "period": {
     "start": "2020-01-01",
     "end": "2024-12-31",
@@ -48,20 +49,147 @@
       "sha256": "9155186c4e1422f72d2d2ba745f3d41017c4f918904ec47e4ab8eba112636e36"
     }
   ],
-  "modis_metadata_sha256": "a2cac946e75f8d8f83d1cc97f701f36214ba5b708ac50a9c24230e5b9aa9886d",
-  "ingestion_commit": "567112555129957da81c0d84d2f13780318cae1f",
+  "ingestion_audit": {
+    "study_area": "Bejís–Villanueva de Viver, Castellón, Spain",
+    "bbox": {
+      "north": 40.2,
+      "south": 39.7,
+      "west": -1.0,
+      "east": -0.4
+    },
+    "period": {
+      "start": "2020-01-01",
+      "end": "2024-12-31",
+      "days": 1827
+    },
+    "era5_hours": 43848,
+    "era5_grid_points": 30,
+    "era5": {
+      "grid_points": 30,
+      "latitude_centers": [
+        39.70000000000113,
+        39.800000000001134,
+        39.900000000001135,
+        40.00000000000114,
+        40.10000000000114
+      ],
+      "longitude_centers": [
+        -0.9999999999868123,
+        -0.8999999999869033,
+        -0.7999999999867669,
+        -0.6999999999868578,
+        -0.5999999999867214,
+        -0.4999999999868123
+      ],
+      "raw_hourly_timestamps": 43848,
+      "negative_rounding": {
+        "ssrd": {
+          "clipped_cell_hours": 6057,
+          "minimum_raw": -4.0,
+          "tolerance_native_units": 5.0
+        },
+        "tp": {
+          "clipped_cell_hours": 22507,
+          "minimum_raw": -5.477340891957283e-08,
+          "tolerance_native_units": 1e-07
+        }
+      },
+      "incomplete_days": [
+        "2024-12-31"
+      ]
+    },
+    "required_extra_data": "tp and ssrd at 2025-01-01 00:00 UTC (interval 2024-12-31 23:00–2025-01-01 00:00), same grid, same de-accumulated source",
+    "inputs": [
+      {
+        "file": "7b19e174e6ab37f8e9487689f8a66e8c - ERA5-LAND.zip",
+        "sha256": "6c19373154beea8c53a482064831a01285d016daf017af444f7f96afefceefb9"
+      },
+      {
+        "file": "DL_FIRE_SV-C2_822332 - VIIRS Active Fire.zip",
+        "sha256": "26aacc0beec0925faf4b4bb885f7aea56d3e44d021dbab9c8094139d7a2e7193"
+      },
+      {
+        "file": "MODIS NDVILST.zip",
+        "sha256": "9155186c4e1422f72d2d2ba745f3d41017c4f918904ec47e4ab8eba112636e36"
+      }
+    ],
+    "modis_metadata_sha256": "a2cac946e75f8d8f83d1cc97f701f36214ba5b708ac50a9c24230e5b9aa9886d",
+    "viirs_detections": 1249,
+    "viirs_days_with_detection": 24,
+    "viirs": {
+      "confidence_counts": {
+        "n": 1082,
+        "h": 103,
+        "l": 64
+      },
+      "filtered_detections": 1185,
+      "filtered_days_with_detection": 23,
+      "observation_coverage": "unknown; detection-only archive",
+      "frp_sum_meaning": "Sum of observed pixel FRP across acquisitions, not daily energy or simultaneous regional power"
+    },
+    "modis": {
+      "ndvi_composites_total": 116,
+      "lst_composites_total": 230,
+      "ndvi_composites_with_valid_pixels": 116,
+      "ndvi_justified_composites_with_valid_pixels": 116,
+      "lst_day_composites_with_valid_pixels": 229,
+      "lst_night_composites_with_valid_pixels": 227,
+      "source_metadata": {
+        "MOD11A2.061": {
+          "time_bounds_source": "NASA CMR cached temporal bounds",
+          "pixel_count": 4320,
+          "grid_shape_selected": [
+            60,
+            72
+          ],
+          "time_units": "seconds since 2000-01-01 00:00:00+00:00",
+          "calendar": "julian"
+        },
+        "MOD13Q1.061": {
+          "time_bounds_source": "NASA CMR cached temporal bounds",
+          "pixel_count": 69120,
+          "grid_shape_selected": [
+            240,
+            288
+          ],
+          "time_units": "seconds since 2000-01-01 00:00:00+00:00",
+          "calendar": "julian"
+        }
+      },
+      "default_ndvi_policy": "strict",
+      "available_from_meaning": "Observation window end, not historical publication date",
+      "max_carry_days_after_window_end": {
+        "ndvi": 32,
+        "lst": 16
+      }
+    },
+    "method": "UTC day; interval-ending ERA5 accumulations shifted by 1h; cell RH before mean; MODIS metadata window bounds; NDVI strict plus justified QA variant",
+    "note": "No VIIRS detection is not proof that no fire occurred."
+  },
+  "ingestion_validation": "passed; inclusiv QA compozite strict/justified/legacy, înaintea eliminării intermediarilor",
   "source_sha256": {
-    "run_cp2.py": "9ab1b3cf38898200f889524bea19d12d36ada1ab7cfb6640be64a5f11d7c9c5f",
-    "cp2_analysis.py": "e8688b44eddd54396e29df6514ba8599bd4f77416e2d89fb7865df16e0f8231a",
-    "cp2_figures.py": "550e5d615562e00930da0bd02eb2fcfca453313482a228e1e8d3ac8f9466f870",
-    "validate_cp2.py": "567eb7b05990de1d9d77ed0bde10c41a16391e4c81b708cff82dc6bd01c6a7bb",
-    "run_pipeline.py": "f214a60b1a1d7bc9246ba4bde812d3af56f7c677a291eddf57b5c33e6be566f5",
+    ".gitignore": "e8c0ac0aaf3748e68aaa138ea07521b81d48a0cfa0fe9013c68e466689683b42",
+    "AGENTS.md": "d873ea89d7ca4cf0eb1e64648438bc84b541ea897d2fc5bf2fa70604d2c16066",
+    "README.md": "0d739330511c114d2a51730d59ede3817b9ba27414b32c8fee37a70c35390d10",
+    "docs/CP2_CERINTE.md": "646a3a5e5a5628a4b060c05cc02b30c5c67f03d654c50275571402e6c29f75d3",
+    "requirements.txt": "192baeca5369f95cac0fba852c4409e3a870dc6c595de7d10cb7eb0eaf02d8fa",
+    "run_pipeline.py": "d3a0e232fd68637b367f62a892950eb65b070478579e5e9f688d3cbfe9dfc83e",
     "pipeline_methods.py": "6c0687789e7fc00bb84dca87d4e59b985f426a3de5a684c53c6f891116dd0c90",
-    "validate_outputs.py": "7993e572fbeb226bca27d03d902e26fd1ecb11f3836b5e608970f4a92065c606",
+    "validate_outputs.py": "78cb7f41597a55fbc79da4549c23ab4716583b8498ad2dcccfc826a577d55d5b",
+    "cp2_analysis.py": "e8688b44eddd54396e29df6514ba8599bd4f77416e2d89fb7865df16e0f8231a",
+    "cp2_delivery.py": "3dc7a6aca3f68a924701a87a521bfe8165f9a5d3dfe2ccbb47bde6a4dac9f385",
+    "cp2_figures.py": "c2708bd1b9dfd1d682713a36606aba34bd5a07a06e5e2bf3c4d187a125735eb0",
+    "run_cp2.py": "3fb0e1bb9be1c50b619852ecc2773c1babab3c143ef7b3683b9477334f3618a2",
+    "validate_cp2.py": "987299c9e69972a8389de6f735dc52d1cb54b8e7fbafabaecbb52ec72267505b",
+    "prepare_publication.py": "1022651402750a916628fed605500a72a5a2cb950cd2844cd63986bb5ae7b8bf",
     "tests/test_cp2.py": "21b9f414c260219e7d6d804dc848d64bef64fec4ed3be69bfe1d39e3dc83c451",
     "tests/test_pipeline.py": "47acd8ff04e95177269a52bc50bf34fdb98b8c7b08d8adcc2f5dc74cd1273194",
-    "requirements.txt": "d07f5b74f2137c05f3534da86f5780d1bdfdb5e6ecaeabdde84b5db04ca2bcec"
+    "tests/test_cp2_final.py": "47b7c4284c1449e17fa217637020c3d8f0e6f7e7d6b1196e56c7b907f92173de",
+    "metadata/README.md": "8a42a3a2c692edcb21cd6fef3253df52ca86fc17ac11efd991e21e4b87bc3eb3",
+    "metadata/modis_composite_periods.json": "83acb1250e3639bba950b41e8221de925a5404285e519cefd975381a6a33d20c",
+    "metadata/cp2_validated_reference.json": "194a2677f6d08b958fbe147390586a687207513762963251d2ca36cbd344eb64"
   },
+  "hash_convention": "SHA-256; PNG exact; text UTF-8 CRLF→LF",
   "versions": {
     "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
     "numpy": "1.26.4",
@@ -76,239 +204,38 @@
     "csv_float_format": "%.12g"
   },
   "tests": {
-    "command": [
-      "C:\\Users\\40741\\anaconda3\\python.exe",
-      "-X",
-      "utf8",
-      "-B",
-      "-m",
-      "unittest",
-      "discover",
-      "-s",
-      "C:\\Users\\40741\\Desktop\\Proiect MEDE\\mede-u11-tipare-inainte-de-incendiu\\tests",
-      "-v"
-    ],
-    "exit_code": 0,
-    "tests_run": 31
+    "tests_run": 39,
+    "exit_code": 0
   },
-  "missing_by_source": [
-    {
-      "source": "ERA5-Land",
-      "n_predictors": 9,
-      "n_days": 1827,
-      "n_cells": 16443,
-      "n_valid_cells": 16434,
-      "n_missing_cells": 9,
-      "missing_cells_pct": 0.05473453749315818,
-      "days_with_any_missing": 1,
-      "days_all_predictors_valid": 1826
-    },
-    {
-      "source": "MODIS NDVI",
-      "n_predictors": 1,
-      "n_days": 1827,
-      "n_cells": 1827,
-      "n_valid_cells": 1824,
-      "n_missing_cells": 3,
-      "missing_cells_pct": 0.16420361247947454,
-      "days_with_any_missing": 3,
-      "days_all_predictors_valid": 1824
-    },
-    {
-      "source": "MODIS LST",
-      "n_predictors": 2,
-      "n_days": 1827,
-      "n_cells": 3654,
-      "n_valid_cells": 3622,
-      "n_missing_cells": 32,
-      "missing_cells_pct": 0.8757525998905309,
-      "days_with_any_missing": 24,
-      "days_all_predictors_valid": 1803
-    }
-  ],
-  "top5_cross_source_correlations": [
-    {
-      "era5_variable": "temperature_mean_c",
-      "era5_label": "Temperatură medie aer",
-      "era5_unit": "°C",
-      "modis_variable": "lst_day_mean_c",
-      "modis_label": "Temperatură suprafață, zi",
-      "modis_unit": "°C",
-      "spearman_rho": 0.9034300374283597,
-      "n_valid_days": 1818,
-      "absolute_rho": 0.9034300374283597
-    },
-    {
-      "era5_variable": "temperature_mean_c",
-      "era5_label": "Temperatură medie aer",
-      "era5_unit": "°C",
-      "modis_variable": "lst_night_mean_c",
-      "modis_label": "Temperatură suprafață, noapte",
-      "modis_unit": "°C",
-      "spearman_rho": 0.8898007603063124,
-      "n_valid_days": 1802,
-      "absolute_rho": 0.8898007603063124
-    },
-    {
-      "era5_variable": "temperature_max_c",
-      "era5_label": "Maxim al temperaturii medii regionale",
-      "era5_unit": "°C",
-      "modis_variable": "lst_day_mean_c",
-      "modis_label": "Temperatură suprafață, zi",
-      "modis_unit": "°C",
-      "spearman_rho": 0.8687753996131256,
-      "n_valid_days": 1818,
-      "absolute_rho": 0.8687753996131256
-    },
-    {
-      "era5_variable": "temperature_max_c",
-      "era5_label": "Maxim al temperaturii medii regionale",
-      "era5_unit": "°C",
-      "modis_variable": "lst_night_mean_c",
-      "modis_label": "Temperatură suprafață, noapte",
-      "modis_unit": "°C",
-      "spearman_rho": 0.8434209916481962,
-      "n_valid_days": 1802,
-      "absolute_rho": 0.8434209916481962
-    },
-    {
-      "era5_variable": "dewpoint_mean_c",
-      "era5_label": "Punct de rouă mediu",
-      "era5_unit": "°C",
-      "modis_variable": "lst_night_mean_c",
-      "modis_label": "Temperatură suprafață, noapte",
-      "modis_unit": "°C",
-      "spearman_rho": 0.7928006218629658,
-      "n_valid_days": 1802,
-      "absolute_rho": 0.7928006218629658
-    }
-  ],
   "generated_files": [
     "acoperire_surse.csv",
     "acoperire_variabile.csv",
     "corelatii_ERA5_MODIS.csv",
     "dictionar_variabile.csv",
-    "grafice/X_principal_indicatori_boxploturi_01.png",
-    "grafice/X_principal_indicatori_boxploturi_02.png",
-    "grafice/X_principal_indicatori_boxploturi_03.png",
-    "grafice/X_principal_indicatori_histograme_01.png",
-    "grafice/X_principal_indicatori_histograme_02.png",
-    "grafice/X_principal_indicatori_histograme_03.png",
-    "grafice/X_principal_predictori_boxploturi_01.png",
-    "grafice/X_principal_predictori_histograme_01.png",
-    "grafice/X_sensibilitate_indicatori_boxploturi_01.png",
-    "grafice/X_sensibilitate_indicatori_boxploturi_02.png",
-    "grafice/X_sensibilitate_indicatori_boxploturi_03.png",
-    "grafice/X_sensibilitate_indicatori_histograme_01.png",
-    "grafice/X_sensibilitate_indicatori_histograme_02.png",
-    "grafice/X_sensibilitate_indicatori_histograme_03.png",
-    "grafice/X_sensibilitate_predictori_boxploturi_01.png",
-    "grafice/X_sensibilitate_predictori_histograme_01.png",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_01.png",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_02.png",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_03.png",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_04.png",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_05.png",
-    "grafice/aliniat_complet_toate_numerice_histograme_01.png",
-    "grafice/aliniat_complet_toate_numerice_histograme_02.png",
-    "grafice/aliniat_complet_toate_numerice_histograme_03.png",
-    "grafice/aliniat_complet_toate_numerice_histograme_04.png",
-    "grafice/aliniat_complet_toate_numerice_histograme_05.png",
     "grafice/aliniere_surse.png",
-    "grafice/corelatii_sensibilitate_ndvi.png",
-    "grafice/corelatii_spearman.png",
-    "grafice/numar_observatii_corelatii.png",
+    "grafice/corelatii_intre_surse.png",
+    "grafice/distributii_selectate.png",
     "grafice/preview_matrice_X.png",
-    "index_grafice.csv",
     "manifest_CP2.json",
     "matrice_X.csv",
-    "matrice_corelatii.csv",
     "metodologie_CP2.md",
-    "numar_observatii_corelatii.csv",
-    "sensibilitate_NDVI/corelatii_ERA5_MODIS.csv",
-    "sensibilitate_NDVI/matrice_X.csv",
-    "sensibilitate_NDVI/matrice_corelatii.csv",
-    "sensibilitate_NDVI/numar_observatii_corelatii.csv",
-    "sensibilitate_ndvi_corelatii.csv",
-    "statistici_descriptive.csv",
-    "surse_corectate/dataset_aliniat_zilnic.csv",
-    "surse_corectate/era5_daily.csv",
-    "surse_corectate/era5_incomplete_days.csv",
-    "surse_corectate/lst_composites.csv",
-    "surse_corectate/manifest.json",
-    "surse_corectate/modis_coverage_sensitivity.csv",
-    "surse_corectate/modis_daily.csv",
-    "surse_corectate/ndvi_composites.csv",
-    "surse_corectate/ndvi_qa_comparison.csv",
-    "surse_corectate/raport_acoperire.csv",
-    "surse_corectate/raport_acoperire.md",
-    "surse_corectate/viirs_daily.csv",
-    "surse_corectate/viirs_daily_nominal_high.csv",
+    "publicatie_CP2.json",
+    "statistici_predictori.csv",
     "tabel_aliniat_complet.csv",
-    "teste_automate.log",
     "validare_CP2.json"
   ],
   "output_sha256": {
-    "surse_corectate/dataset_aliniat_zilnic.csv": "f78cea13e76fc4df24d00ba18917a9e337ac7f63578b68f6bd2731ff75607c62",
-    "surse_corectate/era5_daily.csv": "85d3ee2b3fba03f64e049531d3a598121b1d28228840bef3a90e4d0bf36d3d60",
-    "surse_corectate/era5_incomplete_days.csv": "3d0b51773b9a2ee70ce00fdbd25a700a7fffcfb8fd62eaba7b9d6fed8909e426",
-    "surse_corectate/lst_composites.csv": "ae64c65ac6e21a36ff7682d12071ee84bc5228ca6fadeeb4f492bd79713108fc",
-    "surse_corectate/manifest.json": "8d99c7c81cb9b288b838fc73526aeff769a4734d3fe1dfd3f4d4d6412d55063e",
-    "surse_corectate/modis_coverage_sensitivity.csv": "7cffe972b3a0d9e5f8c4dfed36d541f5d12972acf34f21a68599aa4b9e0e2b59",
-    "surse_corectate/modis_daily.csv": "908aac258e8b33804293842710f5f755a4054ab8b2524dd6beb85b30e1c93a08",
-    "surse_corectate/ndvi_composites.csv": "ff2280dc0c11bdec40953d3bc412ea14b85866edc94c1729e334259bb8450732",
-    "surse_corectate/ndvi_qa_comparison.csv": "85873eaa1eab1b4ae61142521aeaa3480e940d10d6a0a46c42c4c5cf11d55b1e",
-    "surse_corectate/raport_acoperire.csv": "d03244cfa6fe648b618bf32a1943eeed8cfe3da87eae8dd6a41dcaca5db6b24b",
-    "surse_corectate/raport_acoperire.md": "80b156af1ecefbd5d62cc0e376a81cf9f36a199c88676150cf75c3c45f18ca84",
-    "surse_corectate/viirs_daily.csv": "1efacc8dbbafaa413312784aeab969f5fdfb6ac5fd5f3215ff36e7b284c3e93f",
-    "surse_corectate/viirs_daily_nominal_high.csv": "b18b053b9030e6a265786ca0f08f2045fc92a708199103793502142573406396",
-    "grafice/X_principal_predictori_histograme_01.png": "172b0e7dcc5754cea02ee0e67e8860c06608e14c73bdfb3616a07cc8aea1e20d",
-    "grafice/X_principal_predictori_boxploturi_01.png": "93228c0d0e11c1edecb39016b606d5186b12967fad5faffbcf4fbb554bfa6d5e",
-    "grafice/X_principal_indicatori_histograme_01.png": "9f9cc14767b44573be0ab5f3dcfc9d396d360c0fc99c09d11ceba946028fa098",
-    "grafice/X_principal_indicatori_boxploturi_01.png": "9265725a37eeacc0c68db745a1124ca4054a93fed489ece7bc8ee4f6ea8e8e48",
-    "grafice/X_principal_indicatori_histograme_02.png": "fe0ea2afd648ca5d37b1e82b70e6d92dfadc9d7a9c20ac1baebf9bad3dc0373b",
-    "grafice/X_principal_indicatori_boxploturi_02.png": "cd28fbc04f3605cb7587ec49e2f33bb82c7e3e6e59b22bfe81627ff814920b35",
-    "grafice/X_principal_indicatori_histograme_03.png": "3f4a7867650d59c736c0732e2f7fbd2139678e75dedc7e4d9e5dfa51dac043b7",
-    "grafice/X_principal_indicatori_boxploturi_03.png": "a5a33214ab1f05003af0d492998043bfb10208ac14282063a23a413f7e430e72",
-    "grafice/X_sensibilitate_predictori_histograme_01.png": "147b6bb19889e5842af33e901ef02fdc5222ec77fd5e9d8d27a5128740a37dc5",
-    "grafice/X_sensibilitate_predictori_boxploturi_01.png": "c52c6ece52458b677386ec95bdc4025a1705558a3bec3c461c8bef59cd8e4582",
-    "grafice/X_sensibilitate_indicatori_histograme_01.png": "2fece2ec012f052b516ccd552df0721773afbcca915ee10cfda3060977799c38",
-    "grafice/X_sensibilitate_indicatori_boxploturi_01.png": "4da093a830c0cf857dc9ad3b06e0d474a8c90486ad6ef224f58174d9cb3787b5",
-    "grafice/X_sensibilitate_indicatori_histograme_02.png": "3d9cc304ca890c780709ea663a8899f49afcb6183130bceeb7115186fb1419b3",
-    "grafice/X_sensibilitate_indicatori_boxploturi_02.png": "26d992400b1752dad81f77d0adb9a13d78a4195dc9c7c043705b95b1d4ecf831",
-    "grafice/X_sensibilitate_indicatori_histograme_03.png": "09511d6c4605cd61b96d91812eb2b3022569d01ab1da3d45613f705818bf9894",
-    "grafice/X_sensibilitate_indicatori_boxploturi_03.png": "35e0305fab8a205388531de38233788bfd5e19ed08fa8b3224f972dd8c786a92",
-    "grafice/aliniat_complet_toate_numerice_histograme_01.png": "124a6fa1b1df9d197e1afc437fcee3eac359b8059db59d9fd0ac761ae68fbaca",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_01.png": "1076bdf7233f4a37de30745a584037b7259945b36e4ba9ce26c74a03ee4c34da",
-    "grafice/aliniat_complet_toate_numerice_histograme_02.png": "c33f981f4a9b7f35d1b1a47d3261cb1c6a56db88a499b6f914d7f99df81a2112",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_02.png": "e66afcc1052c04ebccb76c52989414679dd7185aefe7bd30a56250d062619887",
-    "grafice/aliniat_complet_toate_numerice_histograme_03.png": "ca1a97e2346465e92510a17d883b141acfd5597959462a33f36035bfd0c6e9f5",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_03.png": "86337419a9835439f72ff971b66283eec1b776feee7a0a5e2bbf02f16fbbb3c3",
-    "grafice/aliniat_complet_toate_numerice_histograme_04.png": "068199d12db05c24021b3f397b48ef2609f03b87db5fa0060895a42a48e05396",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_04.png": "d55eb3940f0a42eedb5ab37ddbfcc41a5096e594c8659569d7cd472137b822cc",
-    "grafice/aliniat_complet_toate_numerice_histograme_05.png": "b32dfb02ff4575ee72c11fc79604deea73f11f0dd2b3adf91453e1910edf25b4",
-    "grafice/aliniat_complet_toate_numerice_boxploturi_05.png": "d063132e9e4f699a3358b77ca40e1de04d0f848af2efcf0526ac8929055c0fa6",
-    "grafice/corelatii_spearman.png": "db88a94828c0ac67ebee3e11a60b1d19d1319fcee8e8afc87811f66856261015",
-    "grafice/numar_observatii_corelatii.png": "68031e9da0cce1920df29a6aaab82f9c402ab8be89e0d155a421f0be0df1008a",
-    "grafice/corelatii_sensibilitate_ndvi.png": "254bdbf5cc64bc35eb01b994680b00fd9c953e4fb1d696dd1b91c555ee083ae2",
+    "matrice_X.csv": "1792a1f777cf546676f307e6f6dea6b4c31674a970f4fc5bd999a62f3319ce78",
+    "tabel_aliniat_complet.csv": "7b6791b61750e971c58240519d5a538bb8e5a3f462771f8bde22dfe45d7e1077",
+    "dictionar_variabile.csv": "db4fd171f9682bd6fa1125547762bc9b9acb08cee79adbfb71bc2d616e995109",
+    "statistici_predictori.csv": "11e272d633d2227f63c30df2500211f4ee80c15f3fc7906628e155b5a97b0b0d",
+    "corelatii_ERA5_MODIS.csv": "68dc5d53d40f06eb77bb47e3febc8bfd4bbfbdcf8654338f34ad04dc94633397",
+    "acoperire_surse.csv": "e783a6f8d8649333ac479256987a41bdf9fdfd69c95128b52302bbf3cb116cf0",
+    "acoperire_variabile.csv": "a6625261373f4c6989a0a3cba8359119d68f6e9f32cb5f4d7f5e0fe286c9a2d0",
+    "grafice/aliniere_surse.png": "2ee7cd0541e44529a1b27c5e7521c5d9de564b7ce0c79805f1cd352e688b0c5c",
     "grafice/preview_matrice_X.png": "44994dc12f2653a71e61457e8372eb8831f723bf62e3a62d8c8770e34bcc3022",
-    "grafice/aliniere_surse.png": "432428ecb051f14bf538251c50599eab47614ca90d6165e28d001fcf4a299e93",
-    "matrice_X.csv": "e145dcd1d40ad0b05e4bed2717e3ae2726685bdb9eddb94b3e8e432946a3169b",
-    "tabel_aliniat_complet.csv": "6cded0696e7796501a141ba67ca2df5a9562fa3e684c7d274c118c70946c65a7",
-    "dictionar_variabile.csv": "352c200ce36dee944e394a882896e7da0bb199108c94228ca23204d3bd94ca49",
-    "statistici_descriptive.csv": "c3701213b66ba26abb9bda6771b337ab3e043d1e345be4bad2414580203aa7f5",
-    "acoperire_surse.csv": "9d7bc84f4655c5ce6d2c29019873fe786ccd107e1f11ba067f338153575609a5",
-    "acoperire_variabile.csv": "e7282400be1798f94e8a4e15cb91c224d3de57173bc4b37142a4dc76c7cf4f15",
-    "matrice_corelatii.csv": "a1b26fde9a64637e65330204bca80a399a5312660db55a3e2c490e9e15fca510",
-    "numar_observatii_corelatii.csv": "44badbc08fce81ff093bf57624fdcccd84a0fb76405afa4752973e41ce1c5f65",
-    "corelatii_ERA5_MODIS.csv": "c15b0deec8c549e4f0f0a26538a7552e0a0bfc17886fa0f8f7a9cb1d601a9b5e",
-    "sensibilitate_ndvi_corelatii.csv": "5c459fb84bb1fbd93a38d697bac7f2d4e6eec70afa7d5360e4fd86562312983f",
-    "sensibilitate_NDVI/matrice_X.csv": "cd98871e60bf3e8545efcc4956bf9afcbf7c27d243124502d6a558ea8485ca17",
-    "sensibilitate_NDVI/matrice_corelatii.csv": "ac574ded7f983cfc887fe9e9e6c309fc16e5896af07ab00c58fbc5182a41df49",
-    "sensibilitate_NDVI/numar_observatii_corelatii.csv": "44badbc08fce81ff093bf57624fdcccd84a0fb76405afa4752973e41ce1c5f65",
-    "sensibilitate_NDVI/corelatii_ERA5_MODIS.csv": "6605bde0c8faffdeed5bb2ed2241c6d8e3d3033e9a7a945dcc4d2f0d35a795f5",
-    "index_grafice.csv": "1a538836a65dfd03715255b35e9edd35dbe262da5191a6f9d2b663648754c5fc",
-    "metodologie_CP2.md": "8a3479fa393957696dc46074355062e2126ba8a7b3b5478b57500a617455444e",
-    "teste_automate.log": "9ee85f9ab6e54bb25e6792aa697cd323d000641845291328ed8a977e5149f57a"
+    "grafice/distributii_selectate.png": "2d464bd7a8879b388b37bc02cbda65392609dc9f10095c890f409e50f4003cce",
+    "grafice/corelatii_intre_surse.png": "e70cc46f922e74a79cf50a6bfebf01ce2bcdb6c5609b2ec370734b60aca9e86d",
+    "metodologie_CP2.md": "1d9f906946b83cc9e0f6fd6ed9db165e73ac1288a5888af174cea9e1d7a796bb"
   }
 }

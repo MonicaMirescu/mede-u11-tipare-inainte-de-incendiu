@@ -1,4 +1,4 @@
-"""Figuri PNG exportabile, fără netezire sau imputare a datelor CP2."""
+"""Cele patru figuri de predare CP2, din valorile CSV validate."""
 from pathlib import Path
 import textwrap
 
@@ -10,89 +10,18 @@ import numpy as np
 import pandas as pd
 
 from cp2_analysis import FEATURES, ERA_FEATURES, MODIS_FEATURES, variable_spec
+from cp2_delivery import PNG_FILES
 
 
 def finish(fig, path):
     fig.savefig(path, dpi=170, facecolor="white", bbox_inches="tight",
-                metadata={"Software":"MEDE U11 CP2"})
+                metadata={"Software": "MEDE U11 CP2"})
     plt.close(fig)
 
 
-def short_label(name, table="X_principal"):
-    spec = variable_spec(name, table)
-    label = FEATURES[name][1] if name in FEATURES else spec["label"]
-    return textwrap.fill(label, 29) + f"\n[{spec['unit']}]"
-
-
-def distribution_pages(frame, names, table, prefix, directory):
-    paths, mapping = [], []
-    for page, start in enumerate(range(0,len(names),12),1):
-        selected = names[start:start+12]
-        for kind in ["histograme", "boxploturi"]:
-            fig, axes = plt.subplots(4,3,figsize=(16,15), squeeze=False)
-            for ax,name in zip(axes.flat,selected):
-                values = frame[name].dropna().to_numpy(dtype=float)
-                if len(values):
-                    if kind == "histograme":
-                        if len(np.unique(values)) <= 5:
-                            unique = np.unique(values)
-                            ax.bar(unique, [(values==v).sum() for v in unique], color="#176b87", width=.55)
-                        else:
-                            ax.hist(values,bins=35,color="#176b87",edgecolor="white",linewidth=.3)
-                        ax.set_ylabel("Zile")
-                    else:
-                        ax.boxplot(values,vert=False,whis=1.5,showfliers=True,patch_artist=True,
-                                   boxprops={"facecolor":"#a8d9c7"}, medianprops={"color":"#172d45"},
-                                   flierprops={"markersize":2,"alpha":.35})
-                        ax.set_yticks([])
-                else:
-                    ax.text(.5,.5,"Fără valori valide",ha="center",transform=ax.transAxes)
-                ax.set_title(short_label(name,table),fontsize=10,loc="left")
-                ax.set_xlabel(f"n={len(values)} zile valide · lipsă={int(frame[name].isna().sum())}",fontsize=8)
-                ax.grid(axis="x" if kind=="boxploturi" else "y",alpha=.15)
-                ax.spines[["top","right"]].set_visible(False)
-            for ax in list(axes.flat)[len(selected):]:
-                ax.set_visible(False)
-            fig.suptitle(f"{table} · {kind} · pagina {page}\nDate zilnice; compozitele MODIS repetate nu sunt achiziții independente",fontsize=14)
-            fig.tight_layout(rect=(0,0,1,.955),h_pad=2.1,w_pad=2)
-            path=directory/f"{prefix}_{kind}_{page:02d}.png"
-            finish(fig,path)
-            paths.append(path)
-            mapping.extend(dict(table=table,variable=name,kind=kind,file=path.name) for name in selected)
-    return paths,mapping
-
-
-def correlation_heatmap(correlation, counts, path, title):
-    labels=[short_label(name) for name in correlation]
-    fig,ax=plt.subplots(figsize=(16,14))
-    image=ax.imshow(correlation.to_numpy(),cmap="RdBu_r",norm=Normalize(-1,1))
-    ax.set_xticks(range(len(labels)),labels,rotation=52,ha="right",fontsize=9)
-    ax.set_yticks(range(len(labels)),labels,fontsize=9)
-    for i in range(len(labels)):
-        for j in range(len(labels)):
-            rho=correlation.iloc[i,j]
-            text="nedefinit" if pd.isna(rho) else f"{rho:+.2f}"
-            ax.text(j,i,text+f"\nn={counts.iloc[i,j]}",ha="center",va="center",fontsize=8,
-                    color="white" if pd.notna(rho) and abs(rho)>.6 else "#172d45")
-    ax.axhline(8.5,color="#172d45",linewidth=2)
-    ax.axvline(8.5,color="#172d45",linewidth=2)
-    fig.colorbar(image,ax=ax,fraction=.035,pad=.025,label="Spearman ρ")
-    ax.set_title(title+"\nERA5 din D−1 · MODIS cu fereastra încheiată până la D\nRanguri pe zile comune; corelația nu demonstrează cauzalitate",fontsize=14,pad=20)
-    finish(fig,path)
-
-
-def observations_heatmap(counts,path):
-    fig,ax=plt.subplots(figsize=(15,13))
-    image=ax.imshow(counts.to_numpy(),cmap="Blues")
-    labels=[short_label(name) for name in counts]
-    ax.set_xticks(range(len(labels)),labels,rotation=52,ha="right",fontsize=9)
-    ax.set_yticks(range(len(labels)),labels,fontsize=9)
-    for i in range(len(labels)):
-        for j in range(len(labels)):
-            ax.text(j,i,str(counts.iloc[i,j]),ha="center",va="center",fontsize=9)
-    ax.set_title("Număr de zile cu valori valide pentru fiecare pereche\nn reprezintă zile aliniate, fără ajustare pentru dependența temporală",pad=20,fontsize=14)
-    fig.colorbar(image,ax=ax,fraction=.035,pad=.025,label="Zile")
-    finish(fig,path)
+def short_label(name):
+    spec = variable_spec(name, "X_principal")
+    return textwrap.fill(FEATURES[name][1], 29) + f"\n[{spec['unit']}]"
 
 
 def matrix_preview(matrix,path):
@@ -123,7 +52,7 @@ def matrix_preview(matrix,path):
 def alignment_table(path):
     rows=[
         ["ERA5-Land","30 centre · 0,1°\nlat 39,7–40,1; lon −1,0…−0,5","Medie regională orară\nRH pe celulă înaintea medierii","Zi UTC; fluxuri 01:00…D+1 00:00\nÎn X: ziua D−1","24 intervale pentru total\nFără imputare"],
-        ["MODIS NDVI","69.120 centre · EPSG:4326\nprodus nominal 250 m","Medie pixeli de teren\nQA strict; alternativă marginală","Fereastră din metadata NASA\nReportare numai după încheiere","Procent pixeli + vechime\nPrimele 3 zile lipsesc"],
+        ["MODIS NDVI","69.120 centre · EPSG:4326\nprodus nominal 250 m","Medie pixeli de teren\nQA strict detaliat","Fereastră din metadata NASA\nReportare numai după încheiere","Procent pixeli + vechime\nPrimele 3 zile lipsesc"],
         ["MODIS LST","4.320 centre · EPSG:4326\nprodus nominal 1 km","Medie pe pixeli valizi\nQC=0 valid; zi/noapte separate","8 zile; 5/6 la sfârșit de an\nReportare, fără interpolare","Goluri QA păstrate\nVechime explicită la reportare"],
         ["VIIRS S-NPP C2","Detecții punctuale\nfiltru BBOX și interval","Număr detecții și FRP\nlow separat; variantă n/h","Agregare pe data UTC\nNumai în tabelul complet","Zero ≠ absență sigură a focului\nExclus din X și corelații"]]
     fig,ax=plt.subplots(figsize=(19,6.8));ax.axis("off")
@@ -136,20 +65,55 @@ def alignment_table(path):
     finish(fig,path)
 
 
-def generate_figures(tables, correlation, counts, sensitivity_correlation, sensitivity_counts, directory):
-    directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
-    paths,mapping=[],[]
-    for table,frame in tables.items():
-        numeric=frame.select_dtypes(include="number").columns.tolist()
-        groups=[("predictori",list(FEATURES)),("indicatori",[n for n in numeric if n not in FEATURES])] if table.startswith("X_") else [("toate_numerice",numeric)]
-        for group,names in groups:
-            p,m=distribution_pages(frame,names,table,f"{table}_{group}",directory)
-            paths.extend(p);mapping.extend(m)
-    for filename,callback in [
-        ("corelatii_spearman.png",lambda p:correlation_heatmap(correlation,counts,p,"Corelații Spearman · analiza principală, NDVI strict")),
-        ("numar_observatii_corelatii.png",lambda p:observations_heatmap(counts,p)),
-        ("corelatii_sensibilitate_ndvi.png",lambda p:correlation_heatmap(sensitivity_correlation,sensitivity_counts,p,"Sensibilitate · NDVI cu marginale justificate")),
-        ("preview_matrice_X.png",lambda p:matrix_preview(tables["X_principal"],p)),
-        ("aliniere_surse.png",alignment_table)]:
-        path=directory/filename;callback(path);paths.append(path)
-    return paths,pd.DataFrame(mapping)
+
+def selected_distributions(matrix, path):
+    names = ["temperature_mean_c", "ndvi_mean", "lst_day_mean_c"]
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+    for ax, name in zip(axes, names):
+        values = matrix[name].dropna().to_numpy(dtype=float)
+        ax.hist(values, bins=35, color="#176b87", edgecolor="white", linewidth=.4)
+        ax.set_title(short_label(name), fontsize=12)
+        ax.set_xlabel(f"n={len(values)} zile valide · lipsă={matrix[name].isna().sum()}")
+        ax.set_ylabel("Număr de zile")
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.grid(axis="y", alpha=.15)
+    fig.suptitle("Distribuții reprezentative · 2020–2024\nERA5 din D−1; MODIS reportat după închiderea ferestrei, fără imputare", fontsize=14)
+    fig.text(.5, .015, "Valorile MODIS repetate zilnic nu sunt achiziții independente.", ha="center", fontsize=10)
+    fig.tight_layout(rect=(0, .05, 1, .87))
+    finish(fig, path)
+
+
+def cross_source_heatmap(cross, path):
+    # Doar rearanjare vizuală a celor 27 de perechi deja calculate în CSV.
+    rho = cross.pivot(index="era5_variable", columns="modis_variable", values="spearman_rho").reindex(index=ERA_FEATURES, columns=MODIS_FEATURES)
+    counts = cross.pivot(index="era5_variable", columns="modis_variable", values="n_valid_days").reindex(index=ERA_FEATURES, columns=MODIS_FEATURES)
+    fig, ax = plt.subplots(figsize=(10, 11))
+    image = ax.imshow(rho.to_numpy(), cmap="RdBu_r", norm=Normalize(-1, 1), aspect="auto")
+    ax.set_xticks(range(3), ["NDVI regional\n[adimensional]", "LST zi\n[°C]", "LST noapte\n[°C]"], fontsize=10)
+    ax.set_yticks(range(9), [short_label(n) for n in ERA_FEATURES], fontsize=10)
+    for i in range(9):
+        for j in range(3):
+            value = rho.iloc[i, j]
+            text = "nedefinit" if pd.isna(value) else f"{value:+.2f}"
+            ax.text(j, i, text + f"\nn={int(counts.iloc[i,j])}", ha="center", va="center",
+                    color="white" if pd.notna(value) and abs(value) > .6 else "#172d45", fontsize=11)
+    ax.set_xlabel("MODIS · NDVI strict / LST", labelpad=12)
+    ax.set_ylabel("ERA5-Land · ziua D−1", labelpad=12)
+    ax.set_title("Corelații exclusiv între surse · Spearman\nρ: asociere monotonă; n: zile cu valori valide comune", pad=20, fontsize=14)
+    fig.colorbar(image, ax=ax, fraction=.045, pad=.04, label="Spearman ρ (−1…+1; adimensional)")
+    fig.text(.5, .02, "Fără ajustare pentru sezonalitate sau dependență temporală. Corelația nu demonstrează cauzalitate.", ha="center", fontsize=9)
+    fig.tight_layout(rect=(0, .05, 1, 1))
+    finish(fig, path)
+
+
+def generate_figures(matrix, cross, directory):
+    directory = Path(directory)
+    directory.mkdir(parents=True, exist_ok=True)
+    callbacks = [alignment_table, lambda p: matrix_preview(matrix, p),
+                 lambda p: selected_distributions(matrix, p), lambda p: cross_source_heatmap(cross, p)]
+    paths = []
+    for name, callback in zip(PNG_FILES, callbacks):
+        path = directory / name
+        callback(path)
+        paths.append(path)
+    return paths

@@ -18,12 +18,27 @@ data/raw/*
 .mypy_cache/
 .ruff_cache/
 
-# CP2 se reproduce integral local; pe GitHub păstrăm 7 figuri esențiale.
-outputs/CP2/grafice/*.png
-!outputs/CP2/grafice/X_principal_predictori_histograme_01.png
-!outputs/CP2/grafice/X_principal_predictori_boxploturi_01.png
-!outputs/CP2/grafice/corelatii_spearman.png
-!outputs/CP2/grafice/numar_observatii_corelatii.png
-!outputs/CP2/grafice/corelatii_sensibilitate_ndvi.png
+.local_cp2/
+data/processed/
+
+# Numai livrabilul final CP2; rezultatele de lucru rămân locale.
+outputs/*
+!outputs/CP2/
+outputs/CP2/*
+!outputs/CP2/matrice_X.csv
+!outputs/CP2/tabel_aliniat_complet.csv
+!outputs/CP2/dictionar_variabile.csv
+!outputs/CP2/statistici_predictori.csv
+!outputs/CP2/corelatii_ERA5_MODIS.csv
+!outputs/CP2/acoperire_surse.csv
+!outputs/CP2/acoperire_variabile.csv
+!outputs/CP2/metodologie_CP2.md
+!outputs/CP2/manifest_CP2.json
+!outputs/CP2/validare_CP2.json
+!outputs/CP2/publicatie_CP2.json
+!outputs/CP2/grafice/
+outputs/CP2/grafice/*
 !outputs/CP2/grafice/aliniere_surse.png
 !outputs/CP2/grafice/preview_matrice_X.png
+!outputs/CP2/grafice/distributii_selectate.png
+!outputs/CP2/grafice/corelatii_intre_surse.png
