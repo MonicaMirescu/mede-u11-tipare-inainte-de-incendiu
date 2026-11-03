@@ -9,3 +9,21 @@ data/raw/*
 !data/raw/INSTRUCTIUNI.txt
 *.zip
 *.nc
+
+# Fișiere temporare locale
+*.tmp
+*.temp
+*.bak
+*~
+.mypy_cache/
+.ruff_cache/
+
+# CP2 se reproduce integral local; pe GitHub păstrăm 7 figuri esențiale.
+outputs/CP2/grafice/*.png
+!outputs/CP2/grafice/X_principal_predictori_histograme_01.png
+!outputs/CP2/grafice/X_principal_predictori_boxploturi_01.png
+!outputs/CP2/grafice/corelatii_spearman.png
+!outputs/CP2/grafice/numar_observatii_corelatii.png
+!outputs/CP2/grafice/corelatii_sensibilitate_ndvi.png
+!outputs/CP2/grafice/aliniere_surse.png
+!outputs/CP2/grafice/preview_matrice_X.png

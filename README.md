@@ -1,4 +1,4 @@
-# MEDE U11 – CP1 corectat metodologic, înainte de CP2
+# MEDE U11 – Matrice zilnică și analiză descriptivă (CP2)
 
 **Proiect:** Tipare înainte de incendiu  
 **Regiune:** Bejís – Villanueva de Viver, Castellón, Spania  
@@ -10,7 +10,50 @@ Pipeline Python pentru **încărcarea, verificarea și alinierea** a trei surse:
 - **VIIRS S-NPP Active Fire C2** (NASA FIRMS): detecții, FRP și date de achiziție.
 - **MODIS MOD13Q1.061 NDVI / MOD11A2.061 LST** (NASA AppEEARS): compozite la 16, respectiv 8 zile.
 
-## Cum se rulează
+## Predare GitHub: verificare fără date brute
+
+Repository-ul include implementarea CP1 corectată, implementarea CP2, tabelele validate și **7 grafice esențiale** din cele 31 generate local. Pentru verificarea pachetului descărcat de pe GitHub, fără arhivele brute:
+
+```bash
+python -m pip install -r requirements.txt
+python -X utf8 -B -m unittest discover -s tests -v
+python -X utf8 -B prepare_publication.py
+```
+
+Inventarul exact și hash-urile sunt în [publicatie_CP2.json](outputs/CP2/publicatie_CP2.json). [Ghidul de predare](docs/PREDARE_GITHUB.md) explică selecția, diferența dintre verificarea pachetului și reproducerea integrală, precum și fișierele păstrate exclusiv local. ZIP-urile și NetCDF-urile originale nu sunt publicate.
+
+Rezultatul principal este **X = 1.827 zile × 12 predictori fizici**; exportul are 54 coloane cu tot cu date/indicatori. Lipsurile predictorilor sunt 0,055% ERA5, 0,164% NDVI și 0,876% LST. Sunt păstrate explicit, fără imputare. [Heatmap principal](outputs/CP2/grafice/corelatii_spearman.png), [distribuții](outputs/CP2/grafice/X_principal_predictori_histograme_01.png), [aliniere](outputs/CP2/grafice/aliniere_surse.png), [preview X](outputs/CP2/grafice/preview_matrice_X.png).
+
+## Reproducerea CP2 pe arhivele originale
+
+Ai nevoie de Python 3.10+, dependențele din `requirements.txt` și cele trei arhive originale în `data/raw/`. Nu sunt necesare credențiale sau acces la internet la rulare; metadatele temporale NASA sunt salvate în proiect.
+
+```bash
+python -m pip install -r requirements.txt
+python -X utf8 -B run_cp2.py --input-dir data/raw --output-dir outputs/CP2
+python -X utf8 -B validate_cp2.py --output-dir outputs/CP2
+python -X utf8 -B prepare_publication.py --write
+```
+
+Comanda CP2 execută testele automate, recitește arhivele prin pipeline-ul corectat, validează sursele și generează toate cele 31 de grafice, apoi verifică fișierele efectiv salvate. `validate_cp2.py` verifică rularea integrală și se folosește după reproducere; pentru subsetul publicat folosește `prepare_publication.py`. Verificările nu se bazează numai pe cifre fixate în README.
+
+În rândul X datat **D**, predictorii ERA5 provin din **D−1**, conform deciziei metodologice pentru analiza informațiilor anterioare zilei investigate. NDVI/LST provin din ultimul compozit cu fereastra încheiată până la D. Prima zi X nu are ERA5 anterior în arhivă și rămâne lipsă; tabelul complet păstrează observațiile originale ale zilei D, inclusiv totalurile incomplete de la 31.12.2024. Nu se impută valori.
+
+X are **12 predictori fizici**: 9 ERA5, NDVI strict și LST zi/noapte. Exportul CSV include și data, proveniența temporală, suportul spațial/vechimea MODIS, completitudinea ERA5 și flag-uri de lipsă. Aceste coloane auxiliare sunt identificate în dicționar și excluse din corelații. VIIRS este păstrat numai în tabelul complet, inclusiv varianta nominal/high; zero detecții nu demonstrează absența incendiului.
+
+Artefactele sunt în [outputs/CP2](outputs/CP2/):
+
+- `matrice_X.csv`, `tabel_aliniat_complet.csv`, `dictionar_variabile.csv`.
+- `statistici_descriptive.csv`: toate coloanele numerice din X principal, X de sensibilitate și tabelul complet; n valid/lipsă, medie, mediană, deviație standard de eșantion, minim, cuartile și maxim.
+- `acoperire_surse.csv` și `acoperire_variabile.csv`: lipsuri, număr de zile reportate și zero imputări. Procentul pe sursă se calculează numai peste celulele predictorilor fizici: zile × numărul predictorilor acelei surse.
+- `matrice_corelatii.csv`, `numar_observatii_corelatii.csv`, `corelatii_ERA5_MODIS.csv`: Spearman și numărul zilelor valide pe fiecare pereche; clasamentul dintre surse folosește |ρ|.
+- `grafice/`: pe GitHub sunt publicate histogramele/boxploturile predictorilor principali, heatmap Spearman cu n, heatmap al numărului de zile, heatmap de sensibilitate NDVI, tabel de aliniere și preview X. Rularea integrală generează suplimentar distribuțiile tuturor indicatorilor/scenariilor. `index_grafice.csv` indică paginile rulării integrale; cele 24 de PNG-uri suplimentare sunt locale/regenerabile.
+- `sensibilitate_NDVI/`: aceeași analiză cu NDVI marginal justificat; comparația corelațiilor este în `sensibilitate_ndvi_corelatii.csv`. Analiza principală rămâne strictă.
+- [metodologie_CP2.md](outputs/CP2/metodologie_CP2.md), `manifest_CP2.json`, `validare_CP2.json` și jurnalul testelor. `surse_corectate/` păstrează rezultatele ingestiei reale folosite în această rulare.
+
+Spearman se calculează pe observațiile complete ale fiecărei perechi, cu ranguri medii pentru egalități, recalculate după eliminarea lipsurilor. Indicatorii de QA/vechime și VIIRS nu intră în matricea principală de corelații. Distribuțiile și n sunt zilnice; valorile MODIS reportate nu sunt achiziții independente. Corelațiile nu sunt ajustate pentru sezonalitate și nu demonstrează cauzalitate sau un semnal specific incendiilor. Nu s-au implementat PCA, scree plot, clustering sau modele predictive.
+
+## Reproducerea corecțiilor CP1 (istoric validat)
 
 Ai nevoie de Python 3.10+ și de cele trei arhive ZIP originale (neincluse în repo).
 
@@ -42,7 +85,7 @@ Artefacte în `outputs/corectii_pipeline/`:
 - `dupa/viirs_daily.csv`: toate detecțiile, cu număr low separat; `dupa/viirs_daily_nominal_high.csv`: varianta filtrată.
 - `comparatie_manifest.json`: commit de referință, hash-uri SHA-256 ale arhivelor și metadatelor, reguli și rezultate măsurate.
 
-Tabelul `dataset_aliniat_zilnic.csv` rămâne tabelul de aliniere CP1. Nu este matricea de predictori X; coloanele VIIRS sunt observaționale. Nu s-au implementat statisticile, figurile, PCA sau modelele CP2. Rapoartele din `data/processed/` rămân istorice CP1 și nu descriu rularea corectată.
+Tabelul `dataset_aliniat_zilnic.csv` rămâne tabelul de aliniere CP1, cu coloane VIIRS observaționale. Matricea X și analiza CP2 se generează separat, prin comenzile de mai sus. Rapoartele din `data/processed/` rămân istorice CP1 și nu descriu rularea corectată.
 
 ## Rezultatele reale după corecții
 
@@ -81,4 +124,4 @@ Valorile și zilele schimbate sunt cuantificate în raportul comparativ. Disponi
 
 **Notă:** Pipeline-ul este adaptat extragerilor efective pentru regiunea Bejís–Villanueva de Viver (2020–2024), nu reprezintă un model generalizat pentru orice NetCDF.
 
-Deciziile, indicatorii și limitele sunt descrise în [metodologia corecțiilor](docs/METODOLOGIE_CORECTII.md). Datele brute rămân excluse din git. Modificările sunt locale pe `cp2-corectii-pipeline`, pentru revizuire înaintea oricărui push.
+Deciziile corecțiilor sunt descrise în [metodologia CP1](docs/METODOLOGIE_CORECTII.md). Corecțiile validate sunt salvate în commit-ul `5671125`, pe `cp2-corectii-pipeline`; implementarea CP2 pornește de aici pe `cp2-matrice-statistici`. Predarea se propune prin Pull Request către `main`, fără îmbinare automată. Datele brute rămân excluse din git.
