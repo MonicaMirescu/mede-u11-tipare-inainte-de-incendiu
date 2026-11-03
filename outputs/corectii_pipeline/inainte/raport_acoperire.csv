@@ -1,0 +1,9 @@
+source,column,days_with_value,days_total,coverage_pct
+ERA5-Land,temperature_mean_c,1827,1827,100.00000
+ERA5-Land,precipitation_total_mm,1827,1827,100.00000
+ERA5-Land,soil_moisture_mean_m3m3,1827,1827,100.00000
+VIIRS Active Fire,viirs_detection_count,1827,1827,100.00000
+VIIRS Active Fire,viirs_has_detection,1827,1827,100.00000
+MODIS NDVI,ndvi_mean,1824,1827,99.84000
+MODIS LST,lst_day_mean_c,1816,1827,99.40000
+MODIS LST,lst_night_mean_c,1800,1827,98.52000

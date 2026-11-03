@@ -1,0 +1,24 @@
+test_duplicates_rejected (test_pipeline.IntervalTests.test_duplicates_rejected) ... ok
+test_ending_timestamp_and_missing_boundary (test_pipeline.IntervalTests.test_ending_timestamp_and_missing_boundary) ... ok
+test_missing_value_not_zero (test_pipeline.IntervalTests.test_missing_value_not_zero) ... ok
+test_supplied_closing_hour_without_double_deaccumulation (test_pipeline.IntervalTests.test_supplied_closing_hour_without_double_deaccumulation) ... ok
+test_fill_cloud_and_unusable_quality (test_pipeline.QualityTests.test_fill_cloud_and_unusable_quality) ... ok
+test_intermediate_usefulness_levels_are_not_treated_as_fill (test_pipeline.QualityTests.test_intermediate_usefulness_levels_are_not_treated_as_fill) ... ok
+test_lst_qc_zero_valid_temperature_fill_invalid (test_pipeline.QualityTests.test_lst_qc_zero_valid_temperature_fill_invalid) ... ok
+test_marginal_requires_detailed_qa (test_pipeline.QualityTests.test_marginal_requires_detailed_qa) ... ok
+test_sparse_mean_retains_explicit_support (test_pipeline.QualityTests.test_sparse_mean_retains_explicit_support) ... ok
+test_bbox_and_duplicates (test_pipeline.ReaderTests.test_bbox_and_duplicates) ... ok
+test_closing_hour_can_be_supplied_only_for_accumulation_variables (test_pipeline.ReaderTests.test_closing_hour_can_be_supplied_only_for_accumulation_variables) ... ok
+test_same_shape_wrong_grid_rejected (test_pipeline.ReaderTests.test_same_shape_wrong_grid_rejected) ... ok
+test_viirs_low_confidence_and_no_invented_frp (test_pipeline.ReaderTests.test_viirs_low_confidence_and_no_invented_frp) ... ok
+test_zip_reader_cell_rh_and_boundary (test_pipeline.ReaderTests.test_zip_reader_cell_rh_and_boundary) ... ok
+test_missing_metadata_must_not_guess (test_pipeline.TemporalTests.test_missing_metadata_must_not_guess) ... ok
+test_netcdf_bounds_take_precedence (test_pipeline.TemporalTests.test_netcdf_bounds_take_precedence) ... ok
+test_no_future_leakage_age_gaps_and_invalid_composite (test_pipeline.TemporalTests.test_no_future_leakage_age_gaps_and_invalid_composite) ... ok
+test_units_decoded_calendar_checked (test_pipeline.TemporalTests.test_units_decoded_calendar_checked) ... ok
+test_year_end_metadata_distinguish_products (test_pipeline.TemporalTests.test_year_end_metadata_distinguish_products) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.525s
+
+OK
