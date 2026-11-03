@@ -1,4 +1,4 @@
-"""Contractul livrabilului CP2: selecție, proveniență și inventar minimal."""
+"""Contractul livrabilului CP2: selecție, proveniență și inventar."""
 import hashlib
 from pathlib import Path
 
