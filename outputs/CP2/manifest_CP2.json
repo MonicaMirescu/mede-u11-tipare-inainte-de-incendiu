@@ -169,7 +169,6 @@
   "ingestion_validation": "passed; inclusiv QA compozite strict/justified/legacy, înaintea eliminării intermediarilor",
   "source_sha256": {
     ".gitignore": "e8c0ac0aaf3748e68aaa138ea07521b81d48a0cfa0fe9013c68e466689683b42",
-    "AGENTS.md": "d873ea89d7ca4cf0eb1e64648438bc84b541ea897d2fc5bf2fa70604d2c16066",
     "README.md": "0d739330511c114d2a51730d59ede3817b9ba27414b32c8fee37a70c35390d10",
     "docs/CP2_CERINTE.md": "646a3a5e5a5628a4b060c05cc02b30c5c67f03d654c50275571402e6c29f75d3",
     "requirements.txt": "192baeca5369f95cac0fba852c4409e3a870dc6c595de7d10cb7eb0eaf02d8fa",
@@ -177,7 +176,7 @@
     "pipeline_methods.py": "6c0687789e7fc00bb84dca87d4e59b985f426a3de5a684c53c6f891116dd0c90",
     "validate_outputs.py": "78cb7f41597a55fbc79da4549c23ab4716583b8498ad2dcccfc826a577d55d5b",
     "cp2_analysis.py": "e8688b44eddd54396e29df6514ba8599bd4f77416e2d89fb7865df16e0f8231a",
-    "cp2_delivery.py": "3dc7a6aca3f68a924701a87a521bfe8165f9a5d3dfe2ccbb47bde6a4dac9f385",
+    "cp2_delivery.py": "32623736539eaaff6d80e5904e353aeb515051398a8fa2d8088a9b50db2666cd",
     "cp2_figures.py": "c2708bd1b9dfd1d682713a36606aba34bd5a07a06e5e2bf3c4d187a125735eb0",
     "run_cp2.py": "3fb0e1bb9be1c50b619852ecc2773c1babab3c143ef7b3683b9477334f3618a2",
     "validate_cp2.py": "987299c9e69972a8389de6f735dc52d1cb54b8e7fbafabaecbb52ec72267505b",

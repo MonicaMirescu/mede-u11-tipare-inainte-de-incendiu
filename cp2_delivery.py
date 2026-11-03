@@ -16,7 +16,7 @@ PNG_FILES = (
 ARTIFACTS = (*CSV_FILES, *(f"grafice/{n}" for n in PNG_FILES), "metodologie_CP2.md")
 CONTROL_FILES = ("manifest_CP2.json", "validare_CP2.json", "publicatie_CP2.json")
 SOURCE_FILES = (
-    ".gitignore", "AGENTS.md", "README.md", "docs/CP2_CERINTE.md",
+    ".gitignore", "README.md", "docs/CP2_CERINTE.md",
     "requirements.txt", "run_pipeline.py", "pipeline_methods.py", "validate_outputs.py",
     "cp2_analysis.py", "cp2_delivery.py", "cp2_figures.py", "run_cp2.py",
     "validate_cp2.py", "prepare_publication.py", "tests/test_cp2.py",
