@@ -168,22 +168,21 @@
   },
   "ingestion_validation": "passed; inclusiv QA compozite strict/justified/legacy, înaintea eliminării intermediarilor",
   "source_sha256": {
-    ".gitignore": "e8c0ac0aaf3748e68aaa138ea07521b81d48a0cfa0fe9013c68e466689683b42",
-    "README.md": "0d739330511c114d2a51730d59ede3817b9ba27414b32c8fee37a70c35390d10",
+    ".gitignore": "3b1c2431faad00341da015e84799f1f00db7b55a30e445b2e83df8de6431fdb9",
+    "README.md": "94f9de2ddfee1282ce052b79592ad01b9e154763bdcf20ee7bb5ec94cd986193",
     "requirements.txt": "192baeca5369f95cac0fba852c4409e3a870dc6c595de7d10cb7eb0eaf02d8fa",
-    "run_pipeline.py": "d3a0e232fd68637b367f62a892950eb65b070478579e5e9f688d3cbfe9dfc83e",
+    "run_pipeline.py": "d35ed798a117ccd1a51091c27995e3497c1878f369f49ef738c01fc8bddc95c8",
     "pipeline_methods.py": "6c0687789e7fc00bb84dca87d4e59b985f426a3de5a684c53c6f891116dd0c90",
     "validate_outputs.py": "78cb7f41597a55fbc79da4549c23ab4716583b8498ad2dcccfc826a577d55d5b",
     "cp2_analysis.py": "e8688b44eddd54396e29df6514ba8599bd4f77416e2d89fb7865df16e0f8231a",
-    "cp2_delivery.py": "1747b70bed5bd6699e6eb827bb2a6d8deb7a7fa00613c35bd48ce86370dc660c",
+    "cp2_delivery.py": "379a472fb01a5aba312776c722bbe578219b1098a19d5bf0dad981d69598589e",
     "cp2_figures.py": "c2708bd1b9dfd1d682713a36606aba34bd5a07a06e5e2bf3c4d187a125735eb0",
-    "run_cp2.py": "3fb0e1bb9be1c50b619852ecc2773c1babab3c143ef7b3683b9477334f3618a2",
+    "run_cp2.py": "6affaa620e47c6c57e3a7b5c529bc48b2e3496663571e2864e00d47f76cf03e8",
     "validate_cp2.py": "987299c9e69972a8389de6f735dc52d1cb54b8e7fbafabaecbb52ec72267505b",
-    "prepare_publication.py": "1022651402750a916628fed605500a72a5a2cb950cd2844cd63986bb5ae7b8bf",
+    "prepare_publication.py": "24a53ba4b69f7da4e866bc5fda7c8568fcfd0866b9cc894f7290f09360268519",
     "tests/test_cp2.py": "21b9f414c260219e7d6d804dc848d64bef64fec4ed3be69bfe1d39e3dc83c451",
     "tests/test_pipeline.py": "47acd8ff04e95177269a52bc50bf34fdb98b8c7b08d8adcc2f5dc74cd1273194",
     "tests/test_cp2_final.py": "47b7c4284c1449e17fa217637020c3d8f0e6f7e7d6b1196e56c7b907f92173de",
-    "metadata/README.md": "8a42a3a2c692edcb21cd6fef3253df52ca86fc17ac11efd991e21e4b87bc3eb3",
     "metadata/modis_composite_periods.json": "83acb1250e3639bba950b41e8221de925a5404285e519cefd975381a6a33d20c",
     "metadata/cp2_validated_reference.json": "194a2677f6d08b958fbe147390586a687207513762963251d2ca36cbd344eb64"
   },
@@ -216,7 +215,6 @@
     "grafice/preview_matrice_X.png",
     "manifest_CP2.json",
     "matrice_X.csv",
-    "metodologie_CP2.md",
     "publicatie_CP2.json",
     "statistici_predictori.csv",
     "tabel_aliniat_complet.csv",
@@ -233,7 +231,6 @@
     "grafice/aliniere_surse.png": "2ee7cd0541e44529a1b27c5e7521c5d9de564b7ce0c79805f1cd352e688b0c5c",
     "grafice/preview_matrice_X.png": "44994dc12f2653a71e61457e8372eb8831f723bf62e3a62d8c8770e34bcc3022",
     "grafice/distributii_selectate.png": "2d464bd7a8879b388b37bc02cbda65392609dc9f10095c890f409e50f4003cce",
-    "grafice/corelatii_intre_surse.png": "e70cc46f922e74a79cf50a6bfebf01ce2bcdb6c5609b2ec370734b60aca9e86d",
-    "metodologie_CP2.md": "1d9f906946b83cc9e0f6fd6ed9db165e73ac1288a5888af174cea9e1d7a796bb"
+    "grafice/corelatii_intre_surse.png": "e70cc46f922e74a79cf50a6bfebf01ce2bcdb6c5609b2ec370734b60aca9e86d"
   }
 }

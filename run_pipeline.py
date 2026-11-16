@@ -367,34 +367,7 @@ def run(input_dir, output_dir, metadata_path=METADATA):
         "note": "No VIIRS detection is not proof that no fire occurred."
     }
     (output_dir / "manifest.json").write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
-    lines = [
-        "# Raport de acoperire – MEDE U11 CP1", "",
-        f"- Unitate: zi × regiune, 2020–2024 ({len(DAYS)} zile).",
-        f"- ERA5: {info['era5_hours']} ore în {info['era5_grid_points']} puncte.",
-        f"- VIIRS: {info['viirs_detections']} detecții în {info['viirs_days_with_detection']} zile.",
-        f"- MODIS: {modis_info['ndvi_composites_total']} NDVI, {modis_info['lst_composites_total']} LST.",
-        f"- Totaluri ERA5 incomplete: {len(incomplete)} zile; totalul este NaN, suma parțială și orele sunt păstrate separat.",
-        ("- Pentru ultima zi este necesar tp și ssrd la 2025-01-01 00:00 UTC, pe aceeași grilă și din aceeași sursă dezacumulată."
-         if info["required_extra_data"] else "- Ultima zi are toate intervalele de totalizare."),
-        f"- VIIRS încredere scăzută: {viirs_info['confidence_counts'].get('l', 0)} detecții; varianta nominal/high: {viirs_info['filtered_detections']} detecții în {viirs_info['filtered_days_with_detection']} zile.",
-        "- Zero detecții VIIRS nu înseamnă absența sigură a incendiului.", "",
-        "| Sursa | Variabila | Zile valide | Acoperire |",
-        "|---|---|---:|---:|"
-    ]
-    for row in report.itertuples(index=False):
-        lines.append(f"| {row.source} | {row.column} | {row.days_with_value}/{row.days_total} | {row.coverage_pct:.2f}% |")
-    lines += ["", "## Limitări", "",
-              "- Medii calculate în întreaga casetă, fără ponderare pe suprafața pixelilor.",
-              "- NDVI strict implicit; varianta marginală justificată este păstrată separat. Fără prag minim de acoperire spațială aplicat.",
-              "- Sensibilitatea la praguri ipotetice este în modis_coverage_sensitivity.csv; acestea nu modifică datele.",
-              "- *_age_days = zile de la ultima zi a ferestrei (minim 1); *_carry_days = zile de la prima alocare permisă (minim 0). Nu este ziua achiziției fiecărui pixel.",
-              "- available_from = sfârșitul exclusiv al ferestrei de observație, nu data istorică a publicării; nu simulează disponibilitatea operațională.",
-              "- Reportăm ultimul compozit încheiat, găsit prin căutare în trecut (merge_asof), fără interpolare liniară; limita CP1 rămâne 32 zile NDVI / 16 zile LST după sfârșitul ferestrei.",
-              "- Un compozit existent fără pixeli valizi rămâne lipsă; nu se înlocuiește cu un compozit mai vechi.",
-              "- Acoperirea numerică VIIRS nu măsoară acoperirea observațională a satelitului.",
-              "- Acest pipeline încarcă și aliniază datele; nu evaluează încă un model predictiv."]
-    (output_dir / "raport_acoperire.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"OK: {len(DAYS)} zile, {info['viirs_detections']} detecții VIIRS")
+    # Acoperirea și proveniența sunt deja păstrate în CSV și manifestul JSON.
     return info
 
 

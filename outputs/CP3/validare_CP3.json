@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "calendar_days": 1827,
+  "physical_predictors": 14,
+  "matrix_shapes": {
+    "1zi": [
+      1827,
+      38
+    ],
+    "7zile": [
+      1827,
+      52
+    ]
+  },
+  "common_days": 1726,
+  "days_by_split": {
+    "train": 1041,
+    "validation": 342,
+    "test": 343
+  },
+  "independent_weekly_cell_checks": 25578,
+  "cp2_original_features_exact": true,
+  "noaa_snapshot_rows": 1833,
+  "noaa_missing_cells": 0,
+  "cross_source_correlations": 18,
+  "figures_verified": 4,
+  "metric_rows_recomputed": 216,
+  "seed_replays_exact": 12,
+  "independent_fixed_seed_replay": "7zile__TOATE seed=11: exact",
+  "cross_library_trustworthiness_checks": 18,
+  "model_arrays_verified": 74,
+  "protected_cp2_files": 32,
+  "tests": {
+    "cp2": {
+      "tests_run": 39,
+      "status": "passed",
+      "command": "python -X utf8 -B -m unittest discover -s tests -v"
+    },
+    "cp3": {
+      "tests_run": 29,
+      "status": "passed",
+      "command": "python -X utf8 -B -m unittest discover -s tests_cp3 -v"
+    }
+  },
+  "limitations": [
+    "single region",
+    "serial dependence and overlapping windows",
+    "MODIS composites repeated daily",
+    "retrospective availability",
+    "seasonality unadjusted",
+    "no predictive or causal claim"
+  ]
+}

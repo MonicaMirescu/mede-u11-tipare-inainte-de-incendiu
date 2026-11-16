@@ -1,4 +1,4 @@
-"""Inventariază și verifică exclusiv livrabilul final CP2 (7 CSV și 4 PNG)."""
+"""Verifică livrabilul CP2 și, opțional, selecția Git comună CP2/CP3."""
 import argparse
 import json
 from pathlib import Path, PurePosixPath
@@ -41,7 +41,14 @@ def verify(root, project, check_index=False):
         tracked = set(subprocess.check_output(["git", "ls-files", "-z"], cwd=project).decode("utf-8").split("\0")) - {""}
         prefix = root.relative_to(project).as_posix() + "/"
         required = set(SOURCE_FILES) | {"data/raw/INSTRUCTIUNI.txt"} | {prefix + n for n in expected}
+        cp3_root = project / "outputs/CP3"
+        if (cp3_root / "manifest_CP3.json").is_file():
+            from cp3.delivery import verify_manifest_inventory
+            cp3_manifest = json.loads((cp3_root / "manifest_CP3.json").read_text(encoding="utf-8"))
+            required = verify_manifest_inventory(cp3_manifest, cp3_root, root, project / "data/CP3_NOAA")
         forbidden = [n for n in tracked if PurePosixPath(n).suffix.lower() in {".zip", ".nc", ".pyc", ".tmp", ".temp", ".bak"}]
+        if {n for n in tracked if PurePosixPath(n).suffix.lower() == ".md"} != {"README.md"}:
+            raise ValueError("README.md trebuie să fie singurul fișier Markdown urmărit")
         if forbidden or tracked != required:
             raise ValueError(f"Selecție Git incorectă; lipsesc={sorted(required-tracked)}; suplimentare={sorted(tracked-required)}; interzise={forbidden}")
     return {**validation, "published_artifacts": len(expected), "git_index_checked": check_index}
