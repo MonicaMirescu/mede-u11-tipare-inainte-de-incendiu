@@ -13,14 +13,14 @@ PNG_FILES = (
     "aliniere_surse.png", "preview_matrice_X.png",
     "distributii_selectate.png", "corelatii_intre_surse.png",
 )
-ARTIFACTS = (*CSV_FILES, *(f"grafice/{n}" for n in PNG_FILES), "metodologie_CP2.md")
+ARTIFACTS = (*CSV_FILES, *(f"grafice/{n}" for n in PNG_FILES))
 CONTROL_FILES = ("manifest_CP2.json", "validare_CP2.json", "publicatie_CP2.json")
 SOURCE_FILES = (
     ".gitignore", "README.md",
     "requirements.txt", "run_pipeline.py", "pipeline_methods.py", "validate_outputs.py",
     "cp2_analysis.py", "cp2_delivery.py", "cp2_figures.py", "run_cp2.py",
     "validate_cp2.py", "prepare_publication.py", "tests/test_cp2.py",
-    "tests/test_pipeline.py", "tests/test_cp2_final.py", "metadata/README.md",
+    "tests/test_pipeline.py", "tests/test_cp2_final.py",
     "metadata/modis_composite_periods.json", "metadata/cp2_validated_reference.json",
 )
 

@@ -21,7 +21,7 @@ data/raw/*
 .local_cp2/
 data/processed/
 
-# Numai livrabilul final CP2; rezultatele de lucru rămân locale.
+# Numai livrabilele CP2/CP3; rezultatele de lucru rămân locale.
 outputs/*
 !outputs/CP2/
 outputs/CP2/*
@@ -32,7 +32,6 @@ outputs/CP2/*
 !outputs/CP2/corelatii_ERA5_MODIS.csv
 !outputs/CP2/acoperire_surse.csv
 !outputs/CP2/acoperire_variabile.csv
-!outputs/CP2/metodologie_CP2.md
 !outputs/CP2/manifest_CP2.json
 !outputs/CP2/validare_CP2.json
 !outputs/CP2/publicatie_CP2.json
@@ -42,3 +41,22 @@ outputs/CP2/grafice/*
 !outputs/CP2/grafice/preview_matrice_X.png
 !outputs/CP2/grafice/distributii_selectate.png
 !outputs/CP2/grafice/corelatii_intre_surse.png
+
+!outputs/CP3/
+outputs/CP3/*
+!outputs/CP3/matrice_CP3_zilnica.csv
+!outputs/CP3/matrice_CP3_7zile.csv
+!outputs/CP3/acoperire_CP3.csv
+!outputs/CP3/rezultate_PCA_UMAP.csv
+!outputs/CP3/stabilitate_CP3.csv
+!outputs/CP3/relatii_ERA5_NOAA.csv
+!outputs/CP3/experimente_CP3.json
+!outputs/CP3/proiectii_CP3.npz
+!outputs/CP3/manifest_CP3.json
+!outputs/CP3/validare_CP3.json
+!outputs/CP3/grafice/
+outputs/CP3/grafice/*
+!outputs/CP3/grafice/baseline_PCA.png
+!outputs/CP3/grafice/comparatie_PCA_UMAP.png
+!outputs/CP3/grafice/stabilitate.png
+!outputs/CP3/grafice/relatii_surse.png

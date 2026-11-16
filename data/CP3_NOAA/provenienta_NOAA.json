@@ -1,0 +1,123 @@
+{
+  "provider": "NOAA Climate Prediction Center",
+  "product": "daily CDAS historical observed indices (legacy norm.daily; not CORE/GFS/GEFS)",
+  "requested_observation_period": [
+    "2019-12-25",
+    "2024-12-30"
+  ],
+  "documentation": {
+    "methodology": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/history/method.shtml",
+    "nao": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/nao.shtml",
+    "ao": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml",
+    "service_change": "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/teleconnections/scn/pdf/scn-changes-to-cpc-teleconnections-products.pdf"
+  },
+  "version_policy": "Ambele snapshoturi provin integral din produsele norm.daily.*.cdas, fără amestec cu noua familie CORE.",
+  "methods": {
+    "nao": "RPCA, anomalii geopotențial 500 hPa 20–90N; climatologie 1950–2000 și tipare lunare interpolate; indice adimensional normalizat",
+    "ao": "Proiecție anomalii geopotențial 1000 hPa pe primul EOF; referință și normalizare 1979–2000; indice adimensional"
+  },
+  "missing_codes_recognized": [
+    -999.0,
+    -9999.0,
+    9999.0,
+    -99999.0,
+    99999.0,
+    "abs(value)>=1e10",
+    "empty/NaN"
+  ],
+  "operational_caution": "D−1 exprimă data observației, nu garantează disponibilitatea operațională istorică.",
+  "indices": {
+    "nao": {
+      "url": "https://ftp.cpc.ncep.noaa.gov/cwlinks/norm.daily.nao.cdas.z500.19500101_current.csv",
+      "resolved_url": "https://ftp.cpc.ncep.noaa.gov/cwlinks/norm.daily.nao.cdas.z500.19500101_current.csv",
+      "mode": "download_https_official",
+      "retrieved_at_utc": "2026-11-15T17:39:01.952378+00:00",
+      "source_sha256_bytes": "df068fd43d22ba017505ea8edf0e281ad39aab1a4885ce88a320c0fbeda18050",
+      "snapshot": "nao_cdas_20191225_20241230.csv",
+      "snapshot_sha256_lf": "1af6f7402e548a0773a2cd04fe83c5240c4559c415cc64c461f2f718156b2f6d",
+      "source_audit": {
+        "rows": 28076,
+        "start": "1950-01-01",
+        "end": "2026-11-13",
+        "header": [
+          "year",
+          "month",
+          "day",
+          "nao_index_cdas"
+        ],
+        "duplicate_dates": 0,
+        "n_special_codes": 0,
+        "n_missing": 2,
+        "min": -3.253999948501587,
+        "max": 2.75131893157959
+      },
+      "snapshot_audit": {
+        "rows": 1833,
+        "start": "2019-12-25",
+        "end": "2024-12-30",
+        "header": [
+          "year",
+          "month",
+          "day",
+          "nao_index_cdas"
+        ],
+        "duplicate_dates": 0,
+        "n_special_codes": 0,
+        "n_missing": 0,
+        "min": -2.8421677118774142,
+        "max": 2.1907784938812256
+      },
+      "response_headers": {
+        "Last-Modified": "Sun, 15 Nov 2026 13:55:29 GMT",
+        "ETag": null,
+        "Content-Type": "text/csv"
+      }
+    },
+    "ao": {
+      "url": "https://ftp.cpc.ncep.noaa.gov/cwlinks/norm.daily.ao.cdas.z1000.19500101_current.csv",
+      "resolved_url": "https://ftp.cpc.ncep.noaa.gov/cwlinks/norm.daily.ao.cdas.z1000.19500101_current.csv",
+      "mode": "download_https_official",
+      "retrieved_at_utc": "2026-11-15T17:39:04.264368+00:00",
+      "source_sha256_bytes": "ac59b23a4fb1795440060b19ca12456f59335a4938f4ce3152df856e0dbbd774",
+      "snapshot": "ao_cdas_20191225_20241230.csv",
+      "snapshot_sha256_lf": "5023c426d42912688d309c7a14c2846666b44db5fdca5c8ca89e9eddb8e01c0c",
+      "source_audit": {
+        "rows": 28076,
+        "start": "1950-01-01",
+        "end": "2026-11-13",
+        "header": [
+          "year",
+          "month",
+          "day",
+          "ao_index_cdas"
+        ],
+        "duplicate_dates": 0,
+        "n_special_codes": 0,
+        "n_missing": 1,
+        "min": -7.432610034942627,
+        "max": 6.073015213012695
+      },
+      "snapshot_audit": {
+        "rows": 1833,
+        "start": "2019-12-25",
+        "end": "2024-12-30",
+        "header": [
+          "year",
+          "month",
+          "day",
+          "ao_index_cdas"
+        ],
+        "duplicate_dates": 0,
+        "n_special_codes": 0,
+        "n_missing": 0,
+        "min": -5.2850213050842285,
+        "max": 6.073015213012695
+      },
+      "response_headers": {
+        "Last-Modified": "Sun, 15 Nov 2026 13:55:29 GMT",
+        "ETag": null,
+        "Content-Type": "text/csv"
+      }
+    }
+  }
+}
